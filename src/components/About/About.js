@@ -21,8 +21,8 @@ const Container = styled.div`
 
   padding: 10rem;
   min-height: 100vh;
-  background: radial-gradient(#fff 0.7px, transparent 1px),
-    radial-gradient(#fff 0.7px, transparent 1px), #292929; //#4dd0e1;
+  background: radial-gradient(#292929 0.7px, transparent 1px),
+    radial-gradient(#292929 0.7px, transparent 1px), #292929; //#4dd0e1;
   background-position: 0 0, 30px 30px;
   background-size: 60px 60px;
 `;
