@@ -1,14 +1,15 @@
 import React from "react";
 import styled from "styled-components";
+import { motion } from "framer-motion";
 
 const About = () => {
   return (
     <Container>
       <Font>Hello! Welcome to my page</Font>
-      <Font>My name is</Font>
       <BigFont>Juhyoung Jung</BigFont>
       <Circle />
-      <BigFont>To be a front end developper/</BigFont>
+      <BigFont>Want to be a nice man</BigFont>
+      <BigFont>and good developper</BigFont>
     </Container>
   );
 };
@@ -21,6 +22,7 @@ const Container = styled.div`
 
   padding: 10rem;
   min-height: 100vh;
+
   background: radial-gradient(#292929 0.7px, transparent 1px),
     radial-gradient(#292929 0.7px, transparent 1px), #292929; //#4dd0e1;
   background-position: 0 0, 30px 30px;
@@ -40,6 +42,7 @@ const BigFont = styled.span`
   font-weight: bold;
   font-size: 9rem;
   text-align: center;
+
   color: white;
 `;
 

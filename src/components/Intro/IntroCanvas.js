@@ -128,6 +128,7 @@ const Geometries = () => {
     trail: 100,
   });
 
+  //style, item 순서
   return transition((props, { position: [x, y, z], r, geometry, material }) => {
     return (
       <Geometry

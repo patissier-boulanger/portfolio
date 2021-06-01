@@ -1,10 +1,13 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
     <Conatiner>
       <Font></Font>
-      <Font>contact</Font>
+      <Link to="/details">
+        <Font>Get Started</Font>
+      </Link>
     </Conatiner>
   );
 };
@@ -20,14 +23,14 @@ const Conatiner = styled.div`
   top: 0;
   left: 0;
   right: 0;
+  z-index: 1;
 `;
 
 const Font = styled.span`
   margin-left: 1rem;
   margin-right: 1rem;
-  padding-bottom: 1.2rem;
+  padding-bottom: 0.3rem;
   font-family: "Roboto Mono", monospace;
-  /* font-weight: 900; */
   font-size: 1.2rem;
   color: grey;
 

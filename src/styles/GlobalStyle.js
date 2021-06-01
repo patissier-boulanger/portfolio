@@ -31,6 +31,7 @@ h4 {
 }
 
 a {
+  text-decoration: none;
   font-style: 1.1rem;
 }
 
