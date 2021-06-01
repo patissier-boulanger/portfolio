@@ -3,9 +3,37 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@900&display=swap");
 
+html {
+  font-size: 62.5%;
+}
+
 #canvas-container {
   position: relative;
   height: 100vh;
 
   /* background-color: #4dd0e1; */
+}
+
+@media screen and (max-width: 1500px) {
+  html {
+    font-size: 45%;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  html {
+    font-size: 35%;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  html {
+    font-size: 25%;
+  }
+}
+
+@media screen and (max-width: 479px) {
+  html {
+    font-size: 20%;
+  }
 }

@@ -1,13 +1,11 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
-const Header = () => {
+const Header = ({ handleOnclick }) => {
   return (
     <Conatiner>
       <Font></Font>
-      <Link to="/details">
-        <Font>Get Started</Font>
-      </Link>
+      <Font onClick={handleOnclick}>Get Started</Font>
     </Conatiner>
   );
 };
@@ -26,13 +24,15 @@ const Conatiner = styled.div`
   z-index: 1;
 `;
 
-const Font = styled.span`
+const Font = styled.button`
+  display: flex;
   margin-left: 1rem;
   margin-right: 1rem;
-  padding-bottom: 0.3rem;
+  padding-bottom: 3.3rem;
   font-family: "Roboto Mono", monospace;
-  font-size: 1.2rem;
+  font-size: 2.3rem;
   color: grey;
+  cursor: pointer;
 
   border-bottom: 1.5px solid grey;
 `;

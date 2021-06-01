@@ -7,6 +7,18 @@ const GlobalStyle = createGlobalStyle`
   box-sizing: border-box;
 }
 
+button, button:focus{
+  outline: none;
+  background: transparent;
+  border: none;
+}
+
+button:active{
+  outline: none;
+  background: transparent;
+  border: none;
+}
+
 h2 {
   font-family: 'Work Sans', sans-serif;
   font-size: 5rem;
