@@ -6,26 +6,25 @@ import { useHistory } from "react-router-dom";
 import { IntroCanvas } from "./IntroCanvas/IntroCanvas";
 import { Header } from "./Header/Header";
 import { About } from "./About/About";
+import { Skills } from "./Skills/Skills";
+import { Works } from "./Works/Works";
+import { End } from "./End/End";
 
 const Intro = () => {
   const controls = useAnimation();
   const history = useHistory();
 
   const handleOnclick = async () => {
-    console.log("1");
     await controlAnimation();
     navigate();
   };
 
   const navigate = () => {
-    console.log("4");
     history.push("/details");
   };
 
   const controlAnimation = async () => {
-    console.log("2");
     await controls.start("show");
-    console.log("3");
   };
 
   const pageAnimation = {
@@ -53,6 +52,9 @@ const Intro = () => {
       <Header handleOnclick={handleOnclick} />
       <IntroCanvas />
       <About />
+      <Skills />
+      <Works />
+      <End />
       <FrameWrapper
         variants={pageAnimation}
         initial="hidden"
@@ -76,7 +78,7 @@ const Frame1 = styled(motion.div)`
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: #4dd0e1;
+  background: #292929;
   z-index: 2;
 `;
 
@@ -89,7 +91,7 @@ const Frame3 = styled(Frame1)`
 `;
 
 const Frame4 = styled(Frame1)`
-  background: white;
+  background: #fff;
 `;
 
 export { Intro };

@@ -4,8 +4,9 @@ import { Link } from "react-router-dom";
 const Header = ({ handleOnclick }) => {
   return (
     <Conatiner>
-      <Font></Font>
-      <Font onClick={handleOnclick}>Get Started</Font>
+      <Font onClick={handleOnclick}>About</Font>
+      <Font onClick={handleOnclick}>Projects</Font>
+      <Font onClick={handleOnclick}>Contact</Font>
     </Conatiner>
   );
 };
@@ -15,7 +16,7 @@ export { Header };
 const Conatiner = styled.div`
   display: flex;
   position: fixed;
-  justify-content: space-between;
+  justify-content: flex-end;
   height: 4rem;
   padding: 1rem;
   top: 0;
