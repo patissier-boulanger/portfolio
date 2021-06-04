@@ -3,7 +3,9 @@ import styled from "styled-components";
 const End = () => {
   return (
     <Container>
-      <BigFont>Get Started</BigFont>
+      <BigFont>Contact</BigFont>
+      <MediumFont>juhyoung.jung1992@gmail.com</MediumFont>
+      <MediumFont>+82 010 7166 6895</MediumFont>
     </Container>
   );
 };
@@ -21,13 +23,13 @@ const Container = styled.div`
 `;
 
 const MediumFont = styled.span`
+  /* margin-top: -1rem; */
   font-family: "Roboto Mono", monospace;
-  font-weight: 200;
+  font-weight: 900;
   font-size: 4rem;
-  text-align: left;
+  text-align: center;
 
   color: #292929;
-  z-index: 1;
 `;
 
 const CenterFont = styled.span`

@@ -1,6 +1,7 @@
 import React, { useRef } from "react";
 import { Text } from "@react-three/drei";
 import { a, useTransition } from "@react-spring/three";
+import { preloadFont } from "@react-three/drei";
 
 const TextImplentation = ({ text, position, font, ...props }) => {
   const AnimatedText = a(Text);
