@@ -47,6 +47,13 @@ a {
   font-style: 1.1rem;
 }
 
+a:link { text-decoration: none; color: #292929}
+
+a:active { text-decoration: none; color: #292929}
+
+a:visited { text-decoration: none; }
+
+
 span {
   color: white;
 }

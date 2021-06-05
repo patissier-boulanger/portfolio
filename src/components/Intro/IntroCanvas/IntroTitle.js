@@ -11,7 +11,7 @@ const TextImplentation = ({ text, position, font, ...props }) => {
       color="black"
       anchorX="center"
       anchorY="middle"
-      fontSize={6}
+      fontSize={5}
       position={position}
       font={font}
       {...props}

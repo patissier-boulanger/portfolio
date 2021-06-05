@@ -25,22 +25,6 @@ const Works = () => {
           <Image src={spaceSimulator} />
         </ImageWraper>
       </RightWork>
-
-      {/* <BigFont>:Projects</BigFont>
-      <MediumFont>Some of my projects</MediumFont>
-      <Wrapper>
-        <LeftWork>
-          <MediumFont>BIBINO</MediumFont>
-          <ImageWraper>
-            <Image src={bibinoImage} />
-            <Image src={bibinoImage2} />
-          </ImageWraper>
-        </LeftWork>
-        <Line></Line>
-        <RightWork>
-          <MediumFont>42-space simulator</MediumFont>
-        </RightWork>
-      </Wrapper> */}
     </Container>
   );
 };
@@ -61,7 +45,7 @@ const Container = styled.div`
     ". left right ."
     ". . right .";
 
-  background: #f3eee8;
+  background: #fff;
 `;
 
 const Title = styled.div`
@@ -95,7 +79,7 @@ const LightFont = styled.span`
 const BigFont = styled.span`
   font-family: "Roboto Mono", monospace;
   font-weight: bold;
-  font-size: 11.3rem;
+  font-size: 4.3rem;
   text-align: center;
 
   color: #292929;

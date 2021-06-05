@@ -10,6 +10,8 @@ import { Skills } from "./Skills/Skills";
 import { Works } from "./Works/Works";
 import { End } from "./End/End";
 
+import { pageAnimation, sliderAnimation } from "../../animations/variants";
+
 const Intro = () => {
   const controls = useAnimation();
   const history = useHistory();
@@ -25,26 +27,6 @@ const Intro = () => {
 
   const controlAnimation = async () => {
     await controls.start("show");
-  };
-
-  const pageAnimation = {
-    hidden: { opacity: 1 },
-    show: {
-      opacity: 1,
-      transition: { duration: 0, when: "beforeChildren", staggerChildren: 0.2 },
-    },
-  };
-
-  const sliderAnimation = {
-    hidden: { x: "-250%", skew: "45deg" },
-    show: {
-      x: "0%",
-      skew: "0deg",
-      transition: {
-        ease: "easeOut",
-        duration: 1,
-      },
-    },
   };
 
   return (

@@ -27,13 +27,13 @@ const Conatiner = styled.div`
 
 const Font = styled.button`
   display: flex;
-  margin-left: 1rem;
-  margin-right: 1rem;
+  margin-left: 2rem;
+  margin-right: 2rem;
   padding-bottom: 3.3rem;
   font-family: "Roboto Mono", monospace;
-  font-size: 2.3rem;
+  font-size: 2rem;
   color: grey;
   cursor: pointer;
 
-  border-bottom: 1.5px solid grey;
+  /* border-bottom: 1.5px solid grey; */
 `;

@@ -65,7 +65,7 @@ const Container = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 17rem;
+  padding: 13rem;
   min-height: 100vh;
 
   background: #fff;
@@ -95,15 +95,15 @@ const Description = styled.div`
 
 const Button = styled.button`
   background-color: #4dd0e1;
-  width: 12rem;
-  height: 10rem;
+  width: 10rem;
+  height: 8rem;
   box-shadow: 8px 8px 0px 4px #292929;
 `;
 
 const MediumFont = styled.span`
   font-family: "Roboto Mono", monospace;
   font-weight: 200;
-  font-size: 4rem;
+  font-size: 3rem;
   text-align: left;
 
   color: #292929;
@@ -113,7 +113,7 @@ const MediumFont = styled.span`
 const ButtonFont = styled.span`
   font-family: "Roboto Mono", monospace;
   font-weight: 700;
-  font-size: 3rem;
+  font-size: 2rem;
   text-align: left;
 
   color: #fff;
@@ -147,7 +147,7 @@ const IconWrapper = styled.div`
 `;
 
 const Line = styled.div`
-  width: 100%;
+  width: 60%;
   border-bottom: 1px solid #292929;
   margin-bottom: 5rem;
 `;

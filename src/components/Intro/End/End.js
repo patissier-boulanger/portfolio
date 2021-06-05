@@ -1,11 +1,41 @@
 import styled from "styled-components";
+import { SiNotion, SiGithub, SiLinkedin } from "react-icons/si";
+import { Link } from "react-router-dom";
 
 const End = () => {
   return (
     <Container>
       <BigFont>Contact</BigFont>
       <MediumFont>juhyoung.jung1992@gmail.com</MediumFont>
-      <MediumFont>+82 010 7166 6895</MediumFont>
+      <MediumFont>Mobile +82 010 7166 6895</MediumFont>
+      <LightFont>Check more info links</LightFont>
+      <IconWrapper>
+        <Link
+          to={{
+            pathname:
+              "https://www.notion.so/Web-Dev-62d236b844964e6dbcbfc19f4ce6068e",
+          }}
+          target="_blank"
+        >
+          <SiNotion size={70} />
+        </Link>
+        <Link
+          to={{
+            pathname: "https://github.com/patissier-boulanger",
+          }}
+          target="_blank"
+        >
+          <SiGithub size={70} />
+        </Link>
+        <Link
+          to={{
+            pathname: "https://www.linkedin.com/in/juhyoung-jung-b57206214/",
+          }}
+          target="_blank"
+        >
+          <SiLinkedin size={70} />
+        </Link>
+      </IconWrapper>
     </Container>
   );
 };
@@ -19,7 +49,7 @@ const Container = styled.div`
   padding: 13rem;
   min-height: 100vh;
 
-  background: #ff69b4;
+  background: #292929;
 `;
 
 const MediumFont = styled.span`
@@ -29,17 +59,16 @@ const MediumFont = styled.span`
   font-size: 4rem;
   text-align: center;
 
-  color: #292929;
+  color: #fff;
 `;
 
-const CenterFont = styled.span`
+const LightFont = styled.span`
   font-family: "Roboto Mono", monospace;
   font-weight: 200;
-  font-size: 4rem;
+  font-size: 3rem;
   text-align: center;
 
-  color: #292929;
-  z-index: 1;
+  color: #fff;
 `;
 
 const BigFont = styled.span`
@@ -48,30 +77,14 @@ const BigFont = styled.span`
   font-size: 15.3rem;
   text-align: center;
 
-  color: #292929;
+  color: #fff;
   z-index: 1;
 `;
 
-const SvgWrapper = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 30rem;
-  height: 30rem;
-`;
-
 const IconWrapper = styled.div`
+  margin-top: 15rem;
   display: flex;
   justify-content: space-evenly;
-  width: 100%;
-`;
-
-const Line = styled.div`
-  width: 100%;
-  border-bottom: 10px solid #292929;
-  margin-bottom: 5rem;
-`;
-
-const Blank = styled.div`
-  height: 2rem;
+  align-self: center;
+  width: 30%;
 `;
