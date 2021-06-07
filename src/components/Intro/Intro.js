@@ -44,9 +44,9 @@ const Intro = () => {
         exit="exit"
       >
         <Frame1 variants={sliderAnimation} />
-        <Frame2 variants={sliderAnimation} />
+        {/* <Frame2 variants={sliderAnimation} />
         <Frame3 variants={sliderAnimation} />
-        <Frame4 variants={sliderAnimation} />
+        <Frame4 variants={sliderAnimation} /> */}
       </FrameWrapper>
     </>
   );
@@ -60,7 +60,7 @@ const Frame1 = styled(motion.div)`
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: #292929;
+  background: #000;
   z-index: 2;
 `;
 

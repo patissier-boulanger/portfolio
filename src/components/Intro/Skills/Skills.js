@@ -1,58 +1,62 @@
 import styled from "styled-components";
-import { ReactComponent as JavaScriptIcon } from "../../../asset/images/javascriptIcon.svg";
-import { ReactComponent as NodejsIcon } from "../../../asset/images/nodejsIcon.svg";
-import { ReactComponent as ReactIcon } from "../../../asset/images/reactIcon.svg";
-import { ReactComponent as MongoDBIcon } from "../../../asset/images/mongoDBIcon.svg";
+
+import { motion } from "framer-motion";
+import { useScrollAnimation } from "../../../hooks/useScrollAnimation";
+import {
+  animationWrapper,
+  lineAnimation,
+  fadeInFontAnimation,
+  slideFontAnimation,
+} from "../../../animations/variants";
 
 const Skills = () => {
+  const [textsWrapper, textsWrapperControls] = useScrollAnimation(0.4);
+  const [descriptionWrapper, descriptionWrapperControls] =
+    useScrollAnimation(0.4);
+
   return (
     <Container>
       <Wrapper>
-        <Texts>
+        <Texts
+          ref={textsWrapper}
+          animate={textsWrapperControls}
+          variants={animationWrapper}
+        >
           <MediumFont>:Skills</MediumFont>
-          <Line />
-          <BigFont>HTML / CSS</BigFont>
-          <BigFont>Javascript</BigFont>
-          <BigFont>React</BigFont>
-          <BigFont>NodeJs</BigFont>
-          <BigFont>Express</BigFont>
-          <BigFont>MongoDB</BigFont>
+          <Line variants={lineAnimation} />
+          <BigFont variants={slideFontAnimation}>HTML / CSS</BigFont>
+          <BigFont variants={slideFontAnimation}>Javascript</BigFont>
+          <BigFont variants={slideFontAnimation}>React</BigFont>
+          <BigFont variants={slideFontAnimation}>NodeJs</BigFont>
+          <BigFont variants={slideFontAnimation}>Express</BigFont>
+          <BigFont variants={slideFontAnimation}>MongoDB</BigFont>
         </Texts>
-        <Description>
+        <Description
+          ref={descriptionWrapper}
+          animate={descriptionWrapperControls}
+          variants={animationWrapper}
+        >
           <MediumFont>:interest</MediumFont>
-          <Line />
-          <MediumFont>I care about </MediumFont>
-          <MediumFont>Readability</MediumFont>
-          <MediumFont>Accessibility</MediumFont>
-          <MediumFont>Reusable code</MediumFont>
-          <MediumFont>Design pattern.</MediumFont>
+          <Line variants={lineAnimation} />
+          <AnimationWrapper variants={slideFontAnimation}>
+            <MediumFont>I care about </MediumFont>
+            <MediumFont>Readability</MediumFont>
+            <MediumFont>Accessibility</MediumFont>
+            <MediumFont>Reusable code</MediumFont>
+            <MediumFont>Design pattern.</MediumFont>
+            <Blank />
+            <MediumFont>
+              I'm interested in creating interactive experiences and functional
+              interfaces.
+            </MediumFont>
+            <Button variants={slideFontAnimation}>
+              <ButtonFont>| More</ButtonFont>
+            </Button>
+          </AnimationWrapper>
           <Blank />
-          <MediumFont>
-            I'm interested in creating interactive experiences and functional
-            interfaces.
-          </MediumFont>
           <Blank />
-          <Blank />
-          <Button>
-            <ButtonFont>| More</ButtonFont>
-          </Button>
         </Description>
       </Wrapper>
-
-      {/* <IconWrapper>
-        <SvgWrapper>
-          <JavaScriptIcon />
-        </SvgWrapper>
-        <SvgWrapper>
-          <ReactIcon />
-        </SvgWrapper>
-        <SvgWrapper>
-          <NodejsIcon />
-        </SvgWrapper>
-        <SvgWrapper>
-          <MongoDBIcon />
-        </SvgWrapper>
-      </IconWrapper> */}
     </Container>
   );
 };
@@ -77,23 +81,25 @@ const Wrapper = styled.div`
   min-height: 80vh;
 `;
 
-const Texts = styled.div`
+const AnimationWrapper = styled(motion.div)`
+  display: flex;
+  flex-direction: column;
+`;
+
+const Texts = styled(motion.div)`
   display: flex;
   flex-direction: column;
   width: 50%;
 `;
 
-const Description = styled.div`
+const Description = styled(motion.div)`
   display: flex;
   flex-direction: column;
   width: 50%;
-  /* background: radial-gradient(#fff 0.7px, transparent 1px),
-    radial-gradient(#fff 0.7px, transparent 1px), #4dd0e1; //#4dd0e1;
-  background-position: 0 0, 30px 30px;
-  background-size: 60px 60px; */
 `;
 
-const Button = styled.button`
+const Button = styled(motion.button)`
+  margin-top: 5rem;
   background-color: #4dd0e1;
   width: 10rem;
   height: 8rem;
@@ -103,7 +109,7 @@ const Button = styled.button`
 const MediumFont = styled.span`
   font-family: "Roboto Mono", monospace;
   font-weight: 200;
-  font-size: 3rem;
+  font-size: 4rem;
   text-align: left;
 
   color: #292929;
@@ -119,7 +125,7 @@ const ButtonFont = styled.span`
   color: #fff;
 `;
 
-const BigFont = styled.span`
+const BigFont = styled(motion.span)`
   font-family: "Roboto Mono", monospace;
   font-weight: 700;
   font-size: 8.3rem;
@@ -129,25 +135,8 @@ const BigFont = styled.span`
   z-index: 1;
 `;
 
-const SvgWrapper = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 30rem;
-  height: 30rem;
-`;
-
-const IconWrapper = styled.div`
-  position: absolute;
-  display: flex;
-  justify-content: space-evenly;
-  width: 70%;
-  top: 60%;
-  left: 30%;
-`;
-
-const Line = styled.div`
-  width: 60%;
+const Line = styled(motion.div)`
+  width: 80%;
   border-bottom: 1px solid #292929;
   margin-bottom: 5rem;
 `;

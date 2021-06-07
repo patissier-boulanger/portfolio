@@ -12,16 +12,16 @@ const Works = () => {
         <LightFont>Some of my projects</LightFont>
       </Title>
       <LeftWork>
-        <MediumFont>BIBINO</MediumFont>
         <ImageWraper>
           <Image src={bibinoImage} />
           <Image src={bibinoImage2} />
+          <MediumFont>BIBINO</MediumFont>
         </ImageWraper>
       </LeftWork>
-      <Line />
+      {/* <VerticalLine /> */}
       <RightWork>
-        <MediumFont>42-space simulator</MediumFont>
         <ImageWraper>
+          <MediumFont>42-space simulator</MediumFont>
           <Image src={spaceSimulator} />
         </ImageWraper>
       </RightWork>
@@ -36,8 +36,9 @@ const Container = styled.div`
   /* display: flex;
   flex-direction: column; */
   display: grid;
-  min-height: 140vh;
-
+  min-height: 120vh;
+  max-width: 100vw;
+  /* overflow: hidden; */
   grid-auto-rows: minmax(5rem, 30rem);
   grid-template-areas:
     ". title title ."
@@ -70,7 +71,7 @@ const LightFont = styled.span`
   margin-top: -1rem;
   font-family: "Roboto Mono", monospace;
   font-weight: 200;
-  font-size: 4rem;
+  font-size: 3rem;
   text-align: center;
 
   color: #292929;
@@ -79,7 +80,7 @@ const LightFont = styled.span`
 const BigFont = styled.span`
   font-family: "Roboto Mono", monospace;
   font-weight: bold;
-  font-size: 4.3rem;
+  font-size: 12.3rem;
   text-align: center;
 
   color: #292929;
@@ -91,14 +92,16 @@ const Wrapper = styled.div`
 `;
 
 const LeftWork = styled.div`
+  position: relative;
   grid-area: left;
 `;
 
 const RightWork = styled.div`
+  position: relative;
   grid-area: right;
 `;
 
-const Line = styled.div`
+const VerticalLine = styled.div`
   position: absolute;
   display: flex;
   top: 15%;
@@ -113,14 +116,13 @@ const Blank = styled.div`
 `;
 
 const ImageWraper = styled.div`
+  position: absolute;
   display: flex;
   flex-direction: row;
-  width: 100%;
-  height: 100%;
-  max-width: 30rem;
-  max-height: 60rem;
 `;
 
 const Image = styled.img`
-  object-fit: cover;
+  object-fit: contain;
+  max-width: 70rem;
+  max-height: 70rem;
 `;

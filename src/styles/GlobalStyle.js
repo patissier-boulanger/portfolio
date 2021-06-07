@@ -47,11 +47,11 @@ a {
   font-style: 1.1rem;
 }
 
-a:link { text-decoration: none; color: #292929}
+a:link { text-decoration: none; color: #A7A7A7}
 
-a:active { text-decoration: none; color: #292929}
+a:active { text-decoration: none; color: #A7A7A7}
 
-a:visited { text-decoration: none; }
+a:visited { text-decoration: none; color: #A7A7A7}
 
 
 span {

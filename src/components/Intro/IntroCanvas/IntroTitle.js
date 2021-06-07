@@ -34,7 +34,7 @@ const IntroTitle = () => {
       font: "/font/RobotoMono-Regular.ttf",
     },
     {
-      text: "Developper",
+      text: "Developer",
       position: [0, -5, 0],
       font: "/font/RockSalt-Regular.ttf",
     },

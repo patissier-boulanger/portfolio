@@ -7,13 +7,14 @@ const pageAnimation = {
 };
 
 const sliderAnimation = {
-  hidden: { x: "-250%", skew: "45deg" },
+  hidden: { width: 0, skew: "0deg" },
   show: {
-    x: "0%",
+    width: "100vw",
     skew: "0deg",
     transition: {
+      type: "spring",
       ease: "easeOut",
-      duration: 1,
+      duration: 2,
     },
   },
 };
@@ -23,27 +24,54 @@ const svgAnimation = {
   show: { pathLength: 1, pathOffset: 0, transition: { duration: 1 } },
 };
 
-const basicFontAnimation = {
-  hidden: { opacity: 1, y: 150 },
+const slideFontAnimation = {
+  hidden: { opacity: 0, y: 50 },
   show: {
     opacity: 1,
     y: 0,
-    transition: { duration: 1, ease: "easeOut" },
+    transition: { duration: 0.8, ease: "easeOut" },
+  },
+};
+
+const animationWrapper = {
+  show: {
+    transition: {
+      staggerChildren: 0.4,
+    },
+  },
+};
+
+const fadeInFontAnimation = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: { duration: 1.5, ease: "easeInOut" },
+  },
+};
+
+const lineAnimation = {
+  hidden: { width: 0 },
+  show: {
+    width: "80%",
+    transition: { type: "spring", duration: 1 },
   },
 };
 
 const photoAnimation = {
-  hidden: { rotate: 5 },
+  hidden: { rotate: 0 },
   show: {
     rotate: 5,
-    transition: { type: "spring", duration: 2.3 },
+    transition: { type: "spring", duration: 2 },
   },
 };
 
 export {
   pageAnimation,
   sliderAnimation,
-  basicFontAnimation,
+  slideFontAnimation,
   svgAnimation,
   photoAnimation,
+  fadeInFontAnimation,
+  animationWrapper,
+  lineAnimation,
 };

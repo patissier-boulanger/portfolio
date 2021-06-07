@@ -1,7 +1,6 @@
-import React, { useState, useRef, useEffect } from "react";
+import React from "react";
 import styled from "styled-components";
-import { motion, useViewportScroll, useTransform } from "framer-motion";
-import { useInView } from "react-intersection-observer";
+import { motion } from "framer-motion";
 
 import face from "../../../asset/images/face2.jpg";
 import { ReactComponent as Smile } from "../../../asset/images/smile.svg";
@@ -9,42 +8,59 @@ import {
   UnderLineAnimtion,
   ArrowAnimation,
   Arrow2Animation,
+  Arrow3Animation,
 } from "../../../animations/svgAnimations";
-import { basicFontAnimation } from "../../../animations/variants";
-import { photoAnimation } from "../../../animations/variants";
+import {
+  slideFontAnimation,
+  fadeInFontAnimation,
+  photoAnimation,
+  animationWrapper,
+} from "../../../animations/variants";
+
 import { useScrollAnimation } from "../../../hooks/useScrollAnimation";
 import { useParallaxEffect } from "../../../hooks/useParallaxEffect";
 
 const About = () => {
   const [descriptionWrapper, descriptionWrapperY] = useParallaxEffect([
-    0, -0.3,
+    0, -0.4,
   ]);
   const [svgWrapper, svgWrapperY] = useParallaxEffect([0, 0.2]);
-  // const [svgWrapper, svgWrapperY] = useParallaxEffect([0, 0.2]);
+  // const [absoluteContainer, absoluteContainerY] = useParallaxEffect([0, 0.1]);
 
   const [upperFonts, upperFontsControls] = useScrollAnimation(0.5);
   const [arrowSvgs, arrowSvgsControls] = useScrollAnimation(0.7);
   const [photo, photoControls] = useScrollAnimation(0.7);
+  const [textsWrapper, textsWrapperControls] = useScrollAnimation(0.2);
 
   return (
     <Container>
-      <SmallFont
-        ref={upperFonts}
-        animate={upperFontsControls}
-        variants={basicFontAnimation}
+      {/* <AbsoluteContainer
+        ref={absoluteContainer}
+        style={{ y: absoluteContainerY }}
       >
-        Hello! Welcome to my page
-      </SmallFont>
+        Dev
+      </AbsoluteContainer> */}
       <NameFont
         ref={upperFonts}
         animate={upperFontsControls}
-        variants={basicFontAnimation}
+        variants={slideFontAnimation}
+      >
+        Hi! I'm
+      </NameFont>
+      <NameFont
+        ref={upperFonts}
+        animate={upperFontsControls}
+        variants={slideFontAnimation}
       >
         Juhyoung Jung
       </NameFont>
+      <Blank />
+      <Blank />
+      <Blank />
       <PhotoWrapper>
         <ArrowAnimation attachRef={arrowSvgs} controls={arrowSvgsControls} />
         <Arrow2Animation attachRef={arrowSvgs} controls={arrowSvgsControls} />
+
         <SvgWrapper ref={svgWrapper} style={{ y: svgWrapperY, rotate: 15 }}>
           <Smile width={"160%"} />
         </SvgWrapper>
@@ -59,21 +75,33 @@ const About = () => {
           style={{ x: "-1rem", y: descriptionWrapperY }}
         >
           <MediumFont>Who am i?</MediumFont>
+          <MediumFont>I'm creative developer</MediumFont>
+          <MediumFont>live in Seoul, Korea</MediumFont>
+          <Blank />
           <MediumFont>I'm hard-worker,</MediumFont>
           <MediumFont>passionate-learner</MediumFont>
           <MediumFont>and movie lover</MediumFont>
           <MediumFont>I swim sometimes</MediumFont>
           <MediumFont>And especialy</MediumFont>
-          <MediumFont>I am who</MediumFont>
+          <Blank />
+          <Blank />
+          <MediumFont>...I am who</MediumFont>
         </DescriptionWrapper>
       </PhotoWrapper>
       <Blank />
-      <BigFont>Want to be a</BigFont>
-      <AnimationWrapper>
-        <BigFont>nice</BigFont>
-        <UnderLineAnimtion />
-      </AnimationWrapper>
-      <BigFont> men and good developper</BigFont>
+      <TextsWrapper
+        ref={textsWrapper}
+        animate={textsWrapperControls}
+        variants={animationWrapper}
+      >
+        <BigFont variants={fadeInFontAnimation}>Want to be a</BigFont>
+        <AnimationWrapper>
+          <BigFont variants={fadeInFontAnimation}>nice</BigFont>
+          <UnderLineAnimtion />
+        </AnimationWrapper>
+        <BigFont variants={fadeInFontAnimation}>men and good </BigFont>
+        <BigFont variants={fadeInFontAnimation}>developer</BigFont>
+      </TextsWrapper>
       <Blank />
     </Container>
   );
@@ -88,6 +116,22 @@ const Container = styled.div`
   padding: 12rem;
   min-height: 100vh;
   background: #292929;
+
+  z-index: 1;
+`;
+
+const AbsoluteContainer = styled(motion.div)`
+  position: absolute;
+  top: 30%;
+  left: 40%;
+  height: 60vh;
+  width: 45vw;
+
+  color: #a7a7a7;
+  background: radial-gradient(#fff 5px, transparent 5px),
+    radial-gradient(#fff 5px, transparent 5px), transparent;
+  background-position: 0 0, 60px 60px;
+  background-size: 60px 60px;
 `;
 
 const PhotoWrapper = styled.div`
@@ -107,28 +151,28 @@ const Photo = styled(motion.img)`
 `;
 
 const SmallFont = styled(motion.span)`
-  margin-bottom: -3rem;
   text-align: center;
-  font-size: 4rem;
+  font-size: 3rem;
   font-family: "Roboto Mono", monospace;
+
   font-weight: 200;
   color: white;
 `;
 
 const NameFont = styled(motion.span)`
-  margin-bottom: 20rem;
   font-family: "Roboto Slab", serif;
-  font-weight: bold;
-  font-size: 17.3rem;
-  text-align: center;
+  font-size: 13.3rem;
+  font-weight: 700;
+  text-align: right;
   color: white;
-  z-index: 1;
+  margin-bottom: -3rem;
+  padding-right: 5rem;
 `;
 
 const MediumFont = styled.span`
   text-align: center;
   font-weight: 200;
-  font-size: 6.3rem;
+  font-size: 5.3rem;
 
   font-family: "Roboto Mono", monospace;
 
@@ -152,7 +196,7 @@ const DescriptionWrapper = styled(motion.div)`
   align-items: flex-end;
   position: absolute;
   width: 90rem;
-  height: 95rem;
+  height: 100rem;
   top: 20rem;
   left: -20rem;
   background-color: #4dd0e1;
@@ -168,33 +212,13 @@ const SvgWrapper = styled(motion.div)`
   filter: drop-shadow(19rem 0px 0px #4dd0e1);
 `;
 
-const AnimationWrapper = styled.div`
+const AnimationWrapper = styled(motion.div)`
   position: relative;
   text-align: center;
 `;
 
-const UnderLineSvg = styled.svg`
-  position: absolute;
-  left: 52%;
-  top: 80%;
-  transform: translate(-50%, -50%);
-  width: 40%;
-`;
-
-const ArrowSvg = styled.svg`
-  position: absolute;
-  right: 11%;
-  top: 60%;
-  transform: translate(-50%, -50%);
-  width: 16%;
-`;
-
-const Arrow2Svg = styled.svg`
-  position: absolute;
-  right: 15%;
-  top: 5%;
-  transform: translate(-50%, -50%);
-  width: 16%;
+const TextsWrapper = styled(motion.div)`
+  text-align: center;
 `;
 
 const Blank = styled.div`
