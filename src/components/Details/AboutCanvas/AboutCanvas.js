@@ -1,13 +1,16 @@
 import React, { Suspense, useRef } from "react";
-import styled from "styled-components";
 
 import * as THREE from "three";
 import { Canvas, useFrame, useThree, useLoader } from "@react-three/fiber";
 import { a, useTransition } from "@react-spring/three";
-import { EffectComposer, SSAO, SMAA } from "@react-three/postprocessing";
+import {
+  EffectComposer,
+  SSAO,
+  SMAA,
+  Noise,
+  Vignette,
+} from "@react-three/postprocessing";
 import { EdgeDetectionMode } from "postprocessing";
-
-import { IntroTitle } from "./IntroTitle";
 
 const Geometry = ({ r, position, ...props }) => {
   const ref = useRef();
@@ -53,71 +56,11 @@ const Geometries = () => {
   ]);
 
   const items = [
-    // {
-    //   position: [4.55, 1.8, -6],
-    //   r: 0.5,
-    //   geometry: new THREE.SphereBufferGeometry(1, 32, 32),
-    //   material: new THREE.MeshMatcapMaterial({ matcap: blackMap }),
-    // },
-    // {
-    //   position: [-2.5, -0.4, 2],
-    //   r: 0.2,
-    //   geometry: new THREE.TetrahedronBufferGeometry(1.5),
-    //   material: new THREE.MeshMatcapMaterial({ matcap: white1 }),
-    // },
-    // {
-    //   position: [2, -0.75, 4],
-    //   r: 0.3,
-    //   geometry: new THREE.CylinderBufferGeometry(0.8, 0.8, 2, 32),
-    //   material: new THREE.MeshMatcapMaterial({ matcap: blackMap }),
-    // },
-    {
-      position: [-0.9, 0.5, 6],
-      r: 0.4,
-      geometry: new THREE.SphereBufferGeometry(0.7, 32, 32),
-      material: new THREE.MeshNormalMaterial(),
-    },
-    {
-      position: [0.5, -1.2, -6],
-      r: 0.9,
-      geometry: new THREE.SphereBufferGeometry(1.5, 32, 32),
-      material: new THREE.MeshMatcapMaterial({ matcap: blackMap }),
-    },
-    {
-      position: [-0.5, 2.5, -2],
-      r: 0.6,
-      geometry: new THREE.IcosahedronBufferGeometry(2),
-      material: new THREE.MeshNormalMaterial(),
-    },
-    // {
-    //   position: [-0.9, -1.75, 3],
-    //   r: 0.35,
-    //   geometry: new THREE.TorusBufferGeometry(1.1, 0.35, 16, 32),
-    //   material: new THREE.MeshMatcapMaterial({ matcap: blackMap }),
-    // },
-    {
-      position: [1.5, 0.5, -2],
-      r: 0.8,
-      geometry: new THREE.OctahedronGeometry(2),
-      material: new THREE.MeshMatcapMaterial({ matcap: mix1 }),
-    },
     {
       position: [-1, -0.5, -6],
-      r: 0.5,
-      geometry: new THREE.BoxBufferGeometry(2, 2, 2),
-      material: new THREE.MeshMatcapMaterial({ matcap: blackMap }),
-    },
-    // {
-    //   position: [1.8, 1.9, 1],
-    //   r: 0.2,
-    //   geometry: new THREE.BoxBufferGeometry(2.5, 2.5, 2.5),
-    //   material: new THREE.MeshMatcapMaterial({ matcap: blackMap }),
-    // },
-    {
-      position: [1.8, -2.6, 1],
-      r: 0.5,
-      geometry: new THREE.BoxBufferGeometry(2.1, 2.1, 2.1),
-      material: new THREE.MeshNormalMaterial(),
+      r: 0.1,
+      geometry: new THREE.BoxBufferGeometry(12, 12, 12),
+      material: new THREE.MeshMatcapMaterial({ matcap: chrome1 }),
     },
   ];
 
@@ -154,7 +97,7 @@ const Rig = () => {
   );
 };
 
-const IntroCanvas = () => {
+const AboutCanvas = () => {
   return (
     <Canvas
       concurrent
@@ -173,7 +116,6 @@ const IntroCanvas = () => {
       <pointLight position={[-20, -20, -20]} intensity={5} />
       <Suspense fallback={null}>
         <Geometries />
-        <IntroTitle />
         <EffectComposer multisampling={0}>
           <SSAO
             samples={25}
@@ -184,6 +126,8 @@ const IntroCanvas = () => {
             bias={0.5}
           />
           <SMAA edgeDetectionMode={EdgeDetectionMode.DEPTH} />
+          <Noise opacity={1.025} />
+          <Vignette eskil={false} offset={0.1} darkness={1.1} />
         </EffectComposer>
       </Suspense>
       <Rig />
@@ -191,4 +135,4 @@ const IntroCanvas = () => {
   );
 };
 
-export { IntroCanvas };
+export { AboutCanvas };

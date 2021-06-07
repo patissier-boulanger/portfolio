@@ -1,3 +1,70 @@
+const pageChangeAnimation = {
+  hidden: {
+    opacity: 0,
+    y: 300,
+  },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.5,
+      when: "beforeChildren",
+      staggerChildren: 0.25,
+    },
+  },
+  exit: {
+    opacity: 0,
+    transition: {
+      duration: 0.5,
+    },
+  },
+};
+
+const enterPageAnimation = {
+  hidden: {
+    opacity: 0,
+  },
+  show: {
+    opacity: 1,
+    transition: {
+      duration: 0.5,
+      when: "beforeChildren",
+      staggerChildren: 1,
+    },
+  },
+  exit: {
+    opacity: 0,
+    transition: {
+      duration: 0.5,
+    },
+  },
+};
+
+const slideAnimation = {
+  hidden: { y: "100vh" },
+  show: {
+    y: 0,
+    transition: {
+      duration: 1,
+      type: "spring",
+      bounce: 0,
+    },
+  },
+};
+
+const expandAnimation = {
+  hidden: { height: 0 },
+  show: {
+    height: "80rem",
+    transition: {
+      delay: 1,
+      duration: 1,
+      type: "spring",
+      bounce: 0,
+    },
+  },
+};
+
 const pageAnimation = {
   hidden: { opacity: 1 },
   show: {
@@ -29,7 +96,7 @@ const slideFontAnimation = {
   show: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.8, ease: "easeOut" },
+    transition: { duration: 1 },
   },
 };
 
@@ -66,6 +133,10 @@ const photoAnimation = {
 };
 
 export {
+  expandAnimation,
+  slideAnimation,
+  enterPageAnimation,
+  pageChangeAnimation,
   pageAnimation,
   sliderAnimation,
   slideFontAnimation,
