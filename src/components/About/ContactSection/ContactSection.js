@@ -2,13 +2,12 @@ import styled from "styled-components";
 import { SiNotion, SiGithub, SiLinkedin } from "react-icons/si";
 import { Link } from "react-router-dom";
 
-const End = () => {
+const ContactSection = () => {
   return (
     <Container>
       <BigFont>Contact</BigFont>
       <MediumFont>juhyoung.jung1992@gmail.com</MediumFont>
       <MediumFont>Mobile +82 010 7166 6895</MediumFont>
-      <LightFont>Check more info links</LightFont>
       <IconWrapper>
         <Link
           to={{
@@ -40,7 +39,7 @@ const End = () => {
   );
 };
 
-export { End };
+export { ContactSection };
 
 const Container = styled.div`
   position: relative;
@@ -49,14 +48,14 @@ const Container = styled.div`
   padding: 13rem;
   min-height: 100vh;
 
-  background: #292929;
+  background: #0f0f0f;
 `;
 
 const MediumFont = styled.span`
   /* margin-top: -1rem; */
   font-family: "Roboto Mono", monospace;
-  font-weight: 900;
-  font-size: 4rem;
+  font-weight: 200;
+  font-size: 3rem;
   text-align: center;
 
   color: #fff;
@@ -74,7 +73,7 @@ const LightFont = styled.span`
 const BigFont = styled.span`
   font-family: "Roboto Mono", monospace;
   font-weight: bold;
-  font-size: 15.3rem;
+  font-size: 12.3rem;
   text-align: center;
 
   color: #fff;

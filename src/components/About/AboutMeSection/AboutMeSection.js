@@ -2,11 +2,14 @@ import React from "react";
 import styled from "styled-components";
 import { motion } from "framer-motion";
 
-const SecondFrame = () => {
+import { fadeInFontAnimation } from "../../../animations/variants";
+import { useScrollAnimation } from "../../../hooks/useScrollAnimation";
+
+const AboutMeSection = () => {
   return (
     <Container>
       <InvisibleWrapper />
-      <TextWrapper>
+      <TextWrapper variants={fadeInFontAnimation}>
         <MediumFont>Who am i?</MediumFont>
         <MediumFont>
           I'm creative <Highlight color={"#000000"}>developer</Highlight>
@@ -34,12 +37,10 @@ const InvisibleWrapper = styled.div`
   width: 40%;
 `;
 
-const TextWrapper = styled.div`
+const TextWrapper = styled(motion.div)`
   display: flex;
   flex-direction: column;
-
   padding-right: 30rem;
-  /* align-items: center; */
   width: 60%;
   margin-top: 18rem;
 `;
@@ -54,9 +55,8 @@ const MediumFont = styled.span`
   font-weight: 200;
   font-size: 3.3rem;
   font-family: "Roboto Mono", monospace;
-
   color: #0f0f0f;
   z-index: 1;
 `;
 
-export { SecondFrame };
+export { AboutMeSection };

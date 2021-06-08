@@ -12,7 +12,7 @@ import { useScrollAnimation } from "../../../hooks/useScrollAnimation";
 import { useParallaxEffect } from "../../../hooks/useParallaxEffect";
 import face from "../../../asset/images/face.png";
 
-const ThirdFrame = () => {
+const PhotoSection = () => {
   const [textsWrapper, textsWrapperControls] = useScrollAnimation(0.2);
   const [photo, photoY] = useParallaxEffect([0, -0.07]);
 
@@ -36,7 +36,7 @@ const ThirdFrame = () => {
   );
 };
 
-export { ThirdFrame };
+export { PhotoSection };
 
 const Container = styled.div`
   position: relative;

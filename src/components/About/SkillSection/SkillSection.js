@@ -9,7 +9,7 @@ import {
   slideFontAnimation,
 } from "../../../animations/variants";
 
-const FourthFrame = () => {
+const SkillSection = () => {
   const [textsWrapper, textsWrapperControls] = useScrollAnimation(0.4);
   const [descriptionWrapper, descriptionWrapperControls] =
     useScrollAnimation(0.4);
@@ -61,7 +61,7 @@ const FourthFrame = () => {
   );
 };
 
-export { FourthFrame };
+export { SkillSection };
 
 const Container = styled.div`
   display: flex;

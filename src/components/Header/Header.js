@@ -62,6 +62,4 @@ const Font = styled.button`
   font-size: 2rem;
   color: grey;
   cursor: pointer;
-
-  /* border-bottom: 1.5px solid grey; */
 `;
