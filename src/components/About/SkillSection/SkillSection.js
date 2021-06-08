@@ -49,9 +49,9 @@ const SkillSection = () => {
               I'm interested in creating interactive experiences and functional
               interfaces.
             </MediumFont>
-            <Button variants={slideFontAnimation}>
+            {/* <Button variants={slideFontAnimation}>
               <ButtonFont>| More</ButtonFont>
-            </Button>
+            </Button> */}
           </AnimationWrapper>
           <Blank />
           <Blank />
@@ -69,14 +69,16 @@ const Container = styled.div`
   justify-content: center;
   align-items: center;
   padding: 13rem;
-  min-height: 100vh;
+  min-height: 70vh;
+
+  margin-bottom: -15rem;
 
   background: #fff;
 `;
 
 const Wrapper = styled.div`
   display: flex;
-  width: 80%;
+  width: 150rem;
   min-height: 80vh;
 `;
 
@@ -99,14 +101,6 @@ const Description = styled(motion.div)`
   width: 50%;
 `;
 
-const Button = styled(motion.button)`
-  margin-top: 5rem;
-  background-color: #4dd0e1;
-  width: 10rem;
-  height: 8rem;
-  box-shadow: 8px 8px 0px 4px #292929;
-`;
-
 const MediumFont = styled.span`
   font-family: "Roboto Mono", monospace;
   font-weight: 200;
@@ -115,15 +109,6 @@ const MediumFont = styled.span`
 
   color: #292929;
   z-index: 1;
-`;
-
-const ButtonFont = styled.span`
-  font-family: "Roboto Mono", monospace;
-  font-weight: 700;
-  font-size: 2rem;
-  text-align: left;
-
-  color: #fff;
 `;
 
 const BigFont = styled(motion.span)`

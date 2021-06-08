@@ -1,7 +1,6 @@
-import React, { useRef } from "react";
+import React from "react";
 import { Text } from "@react-three/drei";
 import { a, useTransition } from "@react-spring/three";
-import { preloadFont } from "@react-three/drei";
 
 const TextImplentation = ({ text, position, font, ...props }) => {
   const AnimatedText = a(Text);
@@ -46,6 +45,7 @@ const IntroTitle = () => {
     leave: { scale: [0.1, 0.1, 0.1] },
     config: { mass: 5, tension: 1000, friction: 200 },
     trail: 200,
+    keys: (item) => item.key,
   });
 
   return transition((props, { text, font, position }) => {

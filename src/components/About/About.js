@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 import { motion } from "framer-motion";
 
@@ -6,6 +6,7 @@ import { AboutCanvas } from "./AboutCanvas/AboutCanvas";
 import { AboutMeSection } from "./AboutMeSection/AboutMeSection";
 import { PhotoSection } from "./PhotoSection/PhotoSection";
 import { SkillSection } from "./SkillSection/SkillSection";
+import { IntroduceSection } from "./IntroduceSection/IntroduceSection";
 import { ContactSection } from "./ContactSection/ContactSection";
 
 import { useParallaxEffect } from "../../hooks/useParallaxEffect";
@@ -17,7 +18,7 @@ import {
   expandAnimation,
 } from "../../animations/variants";
 
-const About = () => {
+const About = ({ aboutObserver }) => {
   const [canvasWrapper, canvasWrapperY] = useParallaxEffect([0, -0.2]);
 
   return (
@@ -28,9 +29,9 @@ const About = () => {
       animate="show"
     >
       <RightProgressLine />
-      <AbsoluteFrame variants={slideAnimation}>
+      <AbsoluteFrame ref={aboutObserver} variants={slideAnimation}>
         <NameTextWrapper>
-          <LeftDescriptionFont>Hi!</LeftDescriptionFont>
+          <LeftDescriptionFont>Hi.</LeftDescriptionFont>
         </NameTextWrapper>
         <CanvasContainer
           ref={canvasWrapper}
@@ -53,6 +54,7 @@ const About = () => {
       </AbsoluteFrame>
       <InvisibleFrame />
       <AboutMeSection />
+      <IntroduceSection />
       <PhotoSection />
       <SkillSection />
       <ContactSection />
@@ -126,7 +128,7 @@ const InvisibleFrame = styled.div`
 const LeftDescriptionFont = styled(motion.span)`
   font-family: "Roboto Mono", monospace;
   font-size: 17.3rem;
-  font-weight: 500;
+  font-weight: 200;
   color: #fff;
   margin-bottom: -3rem;
   padding-right: 5rem;

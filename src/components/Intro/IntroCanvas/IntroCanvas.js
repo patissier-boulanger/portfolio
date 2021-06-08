@@ -1,5 +1,4 @@
 import React, { Suspense, useRef } from "react";
-import styled from "styled-components";
 
 import * as THREE from "three";
 import { Canvas, useFrame, useThree, useLoader } from "@react-three/fiber";
@@ -82,6 +81,7 @@ const Geometries = () => {
       r: 0.9,
       geometry: new THREE.SphereBufferGeometry(1.5, 32, 32),
       material: new THREE.MeshMatcapMaterial({ matcap: blackMap }),
+      key: 2,
     },
     {
       position: [-0.5, 2.5, -2],
@@ -127,6 +127,7 @@ const Geometries = () => {
     leave: { scale: [0.1, 0.1, 0.1], rotation: [0, 0, 0] },
     config: { mass: 5, tension: 1000, friction: 100 },
     trail: 100,
+    keys: (item) => item.key,
   });
 
   //style, item 순서

@@ -13,6 +13,7 @@ const useScrollAnimation = (threshold) => {
   } else {
     controls.start("hidden");
   }
+
   return [element, controls];
 };
 

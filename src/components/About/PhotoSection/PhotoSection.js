@@ -47,8 +47,9 @@ const Container = styled.div`
 `;
 
 const Photo = styled(motion.img)`
-  width: 80vw;
-  height: 80vh;
+  margin-left: 24rem;
+  width: 80rem;
+  height: 80rem;
   object-fit: contain;
 `;
 

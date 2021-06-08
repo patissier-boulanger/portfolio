@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 import { motion } from "framer-motion";
 
@@ -6,23 +6,31 @@ import { fadeInFontAnimation } from "../../../animations/variants";
 import { useScrollAnimation } from "../../../hooks/useScrollAnimation";
 
 const AboutMeSection = () => {
+  const [textsWrapper, textsWrapperControls] = useScrollAnimation(0.2);
+  const slideYAnimation = {
+    hidden: { y: 50, opacity: 0 },
+    show: {
+      y: 0,
+      opacity: 1,
+      transition: { duration: 1 },
+    },
+  };
+
   return (
     <Container>
-      <InvisibleWrapper />
-      <TextWrapper variants={fadeInFontAnimation}>
+      <TextWrapper
+        ref={textsWrapper}
+        animate={textsWrapperControls}
+        variants={slideYAnimation}
+      >
         <MediumFont>Who am i?</MediumFont>
-        <MediumFont>
-          I'm creative <Highlight color={"#000000"}>developer</Highlight>
-        </MediumFont>
+        <MediumFont>I'm creative developer</MediumFont>
         <MediumFont>live in Seoul, Korea</MediumFont>
         <MediumFont>I'm hard-worker,</MediumFont>
-        <MediumFont>
-          <Highlight color={"#000000"}>passionate</Highlight>-learner
-        </MediumFont>
+        <MediumFont>passionate-learner</MediumFont>
         <MediumFont>and movie lover</MediumFont>
         <MediumFont>I swim sometimes</MediumFont>
         <MediumFont>and</MediumFont>
-        <MediumFont>i am who</MediumFont>
       </TextWrapper>
     </Container>
   );
@@ -30,31 +38,25 @@ const AboutMeSection = () => {
 
 const Container = styled.div`
   display: flex;
-  min-height: 100vh;
-`;
-
-const InvisibleWrapper = styled.div`
-  width: 40%;
+  min-height: 80vh;
 `;
 
 const TextWrapper = styled(motion.div)`
+  position: absolute;
   display: flex;
   flex-direction: column;
-  padding-right: 30rem;
-  width: 60%;
+
+  left: 55%;
+  padding-right: 50rem;
+  width: 45%;
   margin-top: 18rem;
 `;
 
-const Highlight = styled.span`
-  color: ${(props) => props.color};
-  font-weight: 500;
-`;
-
 const MediumFont = styled.span`
+  font-family: "Roboto Mono", monospace;
   text-align: right;
   font-weight: 200;
-  font-size: 3.3rem;
-  font-family: "Roboto Mono", monospace;
+  font-size: 3rem;
   color: #0f0f0f;
   z-index: 1;
 `;

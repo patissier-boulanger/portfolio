@@ -1,21 +1,30 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom";
+import { useEffect } from "react";
 
-const Header = ({ handleOnclick }) => {
+const Header = ({ isAboutInView }) => {
   const history = useHistory();
 
-  const navigate = () => {
-    history.push("/details");
+  const navigate = (event) => {
+    history.push(`${event.target.name}`);
   };
 
   return (
     <Conatiner>
-      <Logo>JJH.</Logo>
+      <HeaderBox isAboutInView={isAboutInView}>JJH.</HeaderBox>
+      <HeaderBox></HeaderBox>
+      <HeaderBox></HeaderBox>
+      <HeaderBox>
+        <LanguageButton>En</LanguageButton>
+        <LanguageButton>Kr</LanguageButton>
+      </HeaderBox>
       <Navigation>
-        <Font onClick={navigate}>About</Font>
-        <Font onClick={navigate}>Projects</Font>
-        <Font onClick={navigate}>Contact</Font>
+        <NavButton name={"about"} onClick={navigate}>
+          About
+        </NavButton>
+        <NavButton onClick={navigate}>Projects</NavButton>
+        <NavButton onClick={navigate}>Contact</NavButton>
       </Navigation>
     </Conatiner>
   );
@@ -43,21 +52,35 @@ const Navigation = styled.div`
   justify-content: space-between;
 `;
 
-const Logo = styled.span`
+const HeaderBox = styled.span`
   display: flex;
   margin-left: 2rem;
   margin-right: 2rem;
-  padding-bottom: 3.3rem;
+
   font-family: "Roboto Slab", serif;
   font-size: 2.5rem;
-  color: grey;
+  /* color: grey; */
+  color: ${(props) => (props.isAboutInView ? "white" : "grey")};
 `;
 
-const Font = styled.button`
+const LanguageButton = styled.button`
+  display: flex;
+  justify-content: flex-end;
+  margin-left: 2rem;
+  margin-right: 2rem;
+  margin-top: 0.5rem;
+
+  font-family: "Roboto Mono", monospace;
+  font-size: 1.5rem;
+  color: grey;
+  cursor: pointer;
+`;
+
+const NavButton = styled.button`
   display: flex;
   margin-left: 2rem;
   margin-right: 2rem;
-  padding-bottom: 3.3rem;
+  justify-content: flex-end;
   font-family: "Roboto Mono", monospace;
   font-size: 2rem;
   color: grey;

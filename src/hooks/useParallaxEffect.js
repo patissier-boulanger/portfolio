@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect, useLayoutEffect } from "react";
+import { useState, useRef, useLayoutEffect } from "react";
 import { useViewportScroll, useTransform } from "framer-motion";
 
 const useParallaxEffect = (outputRange) => {
