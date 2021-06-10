@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useEffect, useLayoutEffect } from "react";
 import styled from "styled-components";
 import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 
 import { UnderLineAnimtion } from "../../../animations/svgAnimations";
 import {
@@ -12,12 +13,19 @@ import { useScrollAnimation } from "../../../hooks/useScrollAnimation";
 import { useParallaxEffect } from "../../../hooks/useParallaxEffect";
 import face from "../../../asset/images/face.png";
 
-const PhotoSection = () => {
+const PhotoSection = ({ changeCurrentPage }) => {
+  const [photoObserver, isPhotoInView] = useInView({ threshold: 0.4 });
   const [textsWrapper, textsWrapperControls] = useScrollAnimation(0.2);
   const [photo, photoY] = useParallaxEffect([0, -0.07]);
 
+  useLayoutEffect(() => {
+    if (isPhotoInView) {
+      changeCurrentPage({ currentPage: "photo" });
+    }
+  }, [isPhotoInView, changeCurrentPage]);
+
   return (
-    <Container>
+    <Container ref={photoObserver}>
       <Photo src={face} ref={photo} style={{ y: photoY }} />
       <TextsWrapper
         ref={textsWrapper}

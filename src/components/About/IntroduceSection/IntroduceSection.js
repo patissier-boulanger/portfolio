@@ -1,20 +1,27 @@
+import React, { useEffect, useLayoutEffect } from "react";
 import styled from "styled-components";
-
 import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+
 import { useScrollAnimation } from "../../../hooks/useScrollAnimation";
 import {
   animationWrapper,
-  lineAnimation,
   slideFontAnimation,
 } from "../../../animations/variants";
 
-const IntroduceSection = () => {
-  const [textsWrapper, textsWrapperControls] = useScrollAnimation(0.4);
+const IntroduceSection = ({ changeCurrentPage }) => {
+  const [introduceObserver, isIntroduceInView] = useInView({ threshold: 0.5 });
   const [descriptionWrapper, descriptionWrapperControls] =
     useScrollAnimation(0.4);
 
+  useLayoutEffect(() => {
+    if (isIntroduceInView) {
+      changeCurrentPage({ currentPage: "introduce" });
+    }
+  }, [isIntroduceInView, changeCurrentPage]);
+
   return (
-    <Container>
+    <Container ref={introduceObserver}>
       <Description
         ref={descriptionWrapper}
         animate={descriptionWrapperControls}

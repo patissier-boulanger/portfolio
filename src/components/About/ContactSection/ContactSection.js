@@ -95,8 +95,8 @@ const AnimationWrapper = styled(motion.div)`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  width: 165rem;
-  height: 60rem;
+  width: 80%;
+  height: 60%;
   top: 40%;
   left: 15%;
   padding-top: 10rem;

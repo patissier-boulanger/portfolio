@@ -1,12 +1,20 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useLayoutEffect } from "react";
 import styled from "styled-components";
 import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 
-import { fadeInFontAnimation } from "../../../animations/variants";
 import { useScrollAnimation } from "../../../hooks/useScrollAnimation";
 
-const AboutMeSection = () => {
+const AboutMeSection = ({ changeCurrentPage }) => {
+  const [aboutMeObserver, isAboutMeInView] = useInView({ threshold: 1 });
   const [textsWrapper, textsWrapperControls] = useScrollAnimation(0.2);
+
+  useLayoutEffect(() => {
+    if (isAboutMeInView) {
+      changeCurrentPage({ currentPage: "aboutMe" });
+    }
+  }, [isAboutMeInView, changeCurrentPage]);
+
   const slideYAnimation = {
     hidden: { y: 50, opacity: 0 },
     show: {
@@ -17,7 +25,7 @@ const AboutMeSection = () => {
   };
 
   return (
-    <Container>
+    <Container ref={aboutMeObserver}>
       <TextWrapper
         ref={textsWrapper}
         animate={textsWrapperControls}

@@ -98,7 +98,7 @@ const Rig = () => {
   );
 };
 
-const AboutCanvas = () => {
+const TitleCanvas = () => {
   return (
     <Canvas
       concurrent
@@ -136,4 +136,4 @@ const AboutCanvas = () => {
   );
 };
 
-export { AboutCanvas };
+export { TitleCanvas };
