@@ -1,11 +1,11 @@
-import bibinoIconPath from "../asset/images/bibinoIcon.png";
-import bibinoPath from "../asset/images/bibino.png";
-import bibino1Path from "../asset/images/bibino1.png";
-import bibino2Path from "../asset/images/bibino2.png";
+import bibinoIconPath from "../asset/images/bibinoIcon.jpeg";
+import bibinoPath from "../asset/images/bibino.jpeg";
+import bibino1Path from "../asset/images/bibino1.jpeg";
+import bibino2Path from "../asset/images/bibino2.jpeg";
 
-import spaceSimulatorPath from "../asset/images/42spacesimulator.png";
-import spaceSimulator2Path from "../asset/images/42spacesimulator2.png";
-import spaceSimulator3Path from "../asset/images/42spacesimulator3.png";
+import spaceSimulatorPath from "../asset/images/42spacesimulator.jpeg";
+import spaceSimulator2Path from "../asset/images/42spacesimulator2.jpeg";
+import spaceSimulator3Path from "../asset/images/42spacesimulator3.jpeg";
 
 import vanillacodingPath from "../asset/images/vanillacoding.png";
 import vanillacoding1Path from "../asset/images/vanillacoding1.png";

@@ -32,7 +32,7 @@ const Container = styled(motion.div)`
   flex-direction: column;
   align-items: center;
 
-  width: 15%;
+  width: 10%;
   margin-left: 1rem;
 `;
 

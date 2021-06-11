@@ -3,14 +3,7 @@ import React, { Suspense, useRef } from "react";
 import * as THREE from "three";
 import { Canvas, useFrame, useThree, useLoader } from "@react-three/fiber";
 import { a, useTransition } from "@react-spring/three";
-import {
-  EffectComposer,
-  SSAO,
-  SMAA,
-  Noise,
-  Vignette,
-} from "@react-three/postprocessing";
-import { EdgeDetectionMode } from "postprocessing";
+import { EffectComposer } from "@react-three/postprocessing";
 
 const Geometry = ({ r, position, ...props }) => {
   const ref = useRef();
@@ -31,29 +24,7 @@ const Geometry = ({ r, position, ...props }) => {
 };
 
 const Geometries = () => {
-  const [
-    blackMap,
-    blackMap2,
-    blackMap3,
-    blackMap4,
-    blackMap5,
-    chrome1,
-    pink1,
-    white1,
-    mix1,
-    green1,
-  ] = useLoader(THREE.TextureLoader, [
-    "/texture/black1.png",
-    "/texture/black2.png",
-    "/texture/black3.png",
-    "/texture/black4.png",
-    "/texture/black5.png",
-    "/texture/chrome1.png",
-    "/texture/pink1.png",
-    "/texture/white1.png",
-    "/texture/mix1.png",
-    "/texture/green1.png",
-  ]);
+  const [blackMap] = useLoader(THREE.TextureLoader, ["/texture/black1.png"]);
 
   const items = [
     {
@@ -73,7 +44,6 @@ const Geometries = () => {
     keys: (item) => item.key,
   });
 
-  //style, item 순서
   return transition((props, { position: [x, y, z], r, geometry, material }) => {
     return (
       <Geometry
@@ -117,17 +87,7 @@ const IntroduceCanvas = () => {
       <pointLight position={[-20, -20, -20]} intensity={5} />
       <Suspense fallback={null}>
         <Geometries />
-        <EffectComposer multisampling={0}>
-          <SSAO
-            samples={25}
-            intensity={4}
-            luminanceInfluence={0.5}
-            radius={10}
-            scale={0.5}
-            bias={0.5}
-          />
-          <SMAA edgeDetectionMode={EdgeDetectionMode.DEPTH} />
-        </EffectComposer>
+        <EffectComposer multisampling={0}></EffectComposer>
       </Suspense>
       <Rig />
     </Canvas>
