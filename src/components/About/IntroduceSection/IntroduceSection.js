@@ -4,13 +4,16 @@ import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
 import { useScrollAnimation } from "../../../hooks/useScrollAnimation";
+import { useParallaxEffect } from "../../../hooks/useParallaxEffect";
 import {
   animationWrapper,
   slideFontAnimation,
 } from "../../../animations/variants";
+import { AboutCanvas } from "../AboutCanvas/AboutCanvas";
 
 const IntroduceSection = ({ changeCurrentPage }) => {
   const [introduceObserver, isIntroduceInView] = useInView({ threshold: 0.5 });
+  const [canvasWrapper, canvasWrapperY] = useParallaxEffect([0, 0.2]);
   const [descriptionWrapper, descriptionWrapperControls] =
     useScrollAnimation(0.4);
 
@@ -22,18 +25,23 @@ const IntroduceSection = ({ changeCurrentPage }) => {
 
   return (
     <Container ref={introduceObserver}>
+      <CanvasContainer
+        ref={canvasWrapper}
+        style={{ y: canvasWrapperY, x: canvasWrapperY }}
+      >
+        <AboutCanvas />
+      </CanvasContainer>
       <Description
         ref={descriptionWrapper}
         animate={descriptionWrapperControls}
         variants={animationWrapper}
       >
         <AnimationWrapper variants={slideFontAnimation}>
-          <SecondFont>
-            As an artist I have a keen interest in illustration, street art, and
-            music. I'm currently exploring new media art technologies ranging
-            from 3DCG, generative art, and audio-reactive visuals. Additionally
-            to music videos and video art.
-          </SecondFont>
+          <TitleSansSerifFont>안녕하세요</TitleSansSerifFont>
+          <HeadFont>
+            프론트엔드 개발자 정주형입니다. 서울에 거주하고 있습니다. 열심히
+            일하고 열심히 배웁니다. 그 외의 시간에는 열심히 놉니다.
+          </HeadFont>
         </AnimationWrapper>
       </Description>
       <Description
@@ -42,15 +50,30 @@ const IntroduceSection = ({ changeCurrentPage }) => {
         variants={animationWrapper}
       >
         <AnimationWrapper variants={slideFontAnimation}>
-          <MediumFont>I care about </MediumFont>
-          <MediumFont>Readability</MediumFont>
-          <MediumFont>Accessibility</MediumFont>
-          <MediumFont>Reusable code</MediumFont>
-          <MediumFont>Design pattern.</MediumFont>
+          <TitleSerifFont>목표</TitleSerifFont>
           <MediumFont>
-            I'm interested in creating interactive experiences and functional
-            interfaces.
+            살아있는 공간을 만들고 싶습니다. 즐거운 공간은 신뢰성 있는 코드
+            위에서 이루어진다고 생각합니다. 좋은 코드를 위해 저는 이러한 부분에
+            신경을 쓰려고 노력하고 있습니다. 가독성과 접근성, 재사용 가능한
+            코드와 명료한 디자인 패턴이 그것입니다.
           </MediumFont>
+        </AnimationWrapper>
+      </Description>
+      <Description
+        ref={descriptionWrapper}
+        animate={descriptionWrapperControls}
+        variants={animationWrapper}
+      >
+        <AnimationWrapper variants={slideFontAnimation}>
+          <TitleSansSerifFont>개발자</TitleSansSerifFont>
+          <SecondFont>
+            개발자로써 사용자 경험에 관심을 가지려고 노력하고 있습니다. 웹
+            사이트들을 들어갈때마다 어떻게 이루어져 있는지 관찰하려고
+            노력합니다. 좋은 Ui와 Ux가 기술적 요소만큼 중요하다고 생각하며 이를
+            위해서 다양한 분야의 경험을 하기 위해 노력하고 있습니다. 최근에는 3d
+            기술을 통해 더 좋은 ui를 구현하기 위해 학습하고 있습니다. 개발자를
+            하기 전의 경력이 이러한 부분에 도움을 줄 수 있을 거라고 생각합니다.
+          </SecondFont>
         </AnimationWrapper>
       </Description>
     </Container>
@@ -60,13 +83,21 @@ const IntroduceSection = ({ changeCurrentPage }) => {
 export { IntroduceSection };
 
 const Container = styled.div`
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  min-height: 100vh;
+  min-height: 120vh;
   background: #fff;
-  padding: 10rem;
-  margin-bottom: 10rem;
+  padding: 20rem;
+`;
+
+const CanvasContainer = styled(motion.div)`
+  position: absolute;
+  top: 55%;
+  left: 0%;
+  width: 40rem;
+  height: 40rem;
 `;
 
 const AnimationWrapper = styled(motion.div)`
@@ -77,12 +108,12 @@ const AnimationWrapper = styled(motion.div)`
 const Description = styled(motion.div)`
   display: flex;
   flex-direction: column;
-  max-width: 15%;
+  max-width: 25%;
   margin-left: 10rem;
 `;
 
 const MediumFont = styled.span`
-  font-family: "Roboto Slab", serif;
+  font-family: "Noto Serif KR", serif;
   font-weight: 400;
   font-size: 3rem;
   text-align: left;
@@ -92,11 +123,43 @@ const MediumFont = styled.span`
 `;
 
 const SecondFont = styled.span`
-  font-family: "Roboto Slab", serif;
+  font-family: "Noto Sans KR", sans-serif;
   font-weight: 200;
   font-size: 2.8rem;
   text-align: left;
 
   color: #292929;
   z-index: 1;
+`;
+
+const HeadFont = styled.span`
+  font-family: "Noto Sans KR", sans-serif;
+  font-weight: 200;
+  font-size: 3rem;
+  text-align: left;
+
+  color: #292929;
+  z-index: 1;
+`;
+
+const TitleSansSerifFont = styled.span`
+  font-family: "Noto Sans KR", sans-serif;
+  font-weight: 200;
+  font-size: 2rem;
+  text-align: left;
+
+  color: #292929;
+  z-index: 1;
+  margin-bottom: 1rem;
+`;
+
+const TitleSerifFont = styled.span`
+  font-family: "Noto Serif KR", serif;
+  font-weight: 400;
+  font-size: 2rem;
+  text-align: left;
+
+  color: #292929;
+  z-index: 1;
+  margin-bottom: 1rem;
 `;

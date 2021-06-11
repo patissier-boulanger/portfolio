@@ -12,6 +12,8 @@ import {
 import { useScrollAnimation } from "../../../hooks/useScrollAnimation";
 import { useParallaxEffect } from "../../../hooks/useParallaxEffect";
 import face from "../../../asset/images/face.png";
+import code from "../../../asset/images/code.gif";
+import color from "../../../asset/images/color1.png";
 
 const PhotoSection = ({ changeCurrentPage }) => {
   const [photoObserver, isPhotoInView] = useInView({ threshold: 0.4 });
@@ -34,7 +36,7 @@ const PhotoSection = ({ changeCurrentPage }) => {
       >
         <Font variants={fadeInFontAnimation}>Want to be a</Font>
         <AnimationWrapper>
-          <Font variants={fadeInFontAnimation}>nice</Font>
+          <Font variants={fadeInFontAnimation}>better</Font>
           <UnderLineAnimtion />
         </AnimationWrapper>
         <Font variants={fadeInFontAnimation}>men and good </Font>

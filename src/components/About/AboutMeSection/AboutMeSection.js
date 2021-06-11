@@ -31,14 +31,15 @@ const AboutMeSection = ({ changeCurrentPage }) => {
         animate={textsWrapperControls}
         variants={slideYAnimation}
       >
-        <MediumFont>Who am i?</MediumFont>
-        <MediumFont>I'm creative developer</MediumFont>
-        <MediumFont>live in Seoul, Korea</MediumFont>
-        <MediumFont>I'm hard-worker,</MediumFont>
-        <MediumFont>passionate-learner</MediumFont>
-        <MediumFont>and movie lover</MediumFont>
-        <MediumFont>I swim sometimes</MediumFont>
-        <MediumFont>and</MediumFont>
+        <MediumFont>안녕하세요.</MediumFont>
+        <MediumFont>프론트엔드 개발자 정주형입니다.</MediumFont>
+
+        <MediumFont>서울에 거주하고 있습니다.</MediumFont>
+        <MediumFont>열심히 일하고 열심히 배웁니다.</MediumFont>
+        <MediumFont>그 외의 시간에는 열심히 놉니다.</MediumFont>
+        <MediumFont>수영하는 것을 좋아합니다.</MediumFont>
+        <MediumFont>새로운 전자제품을 </MediumFont>
+        <MediumFont>가지고 노는 것도 좋아합니다.</MediumFont>
       </TextWrapper>
     </Container>
   );
@@ -56,15 +57,15 @@ const TextWrapper = styled(motion.div)`
 
   left: 55%;
   padding-right: 50rem;
-  width: 45%;
+  width: 55%;
   margin-top: 18rem;
 `;
 
 const MediumFont = styled.span`
-  font-family: "Roboto Mono", monospace;
-  text-align: right;
-  font-weight: 200;
-  font-size: 3rem;
+  font-family: "Noto Sans KR", sans-serif;
+  text-align: left;
+  font-weight: 300;
+  font-size: 2.8rem;
   color: #0f0f0f;
   z-index: 1;
 `;

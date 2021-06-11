@@ -5,6 +5,9 @@ import { useInView } from "react-intersection-observer";
 
 import { TitleCanvas } from "./TitleCanvas/TitleCanvas";
 
+import face from "../../../asset/images/face.png";
+import color from "../../../asset/images/color1.png";
+
 import { useParallaxEffect } from "../../../hooks/useParallaxEffect";
 import {
   slideFontAnimation,
@@ -15,7 +18,6 @@ import {
 
 const Title = ({ changeCurrentPage }) => {
   const [titleObserver, isTitleInView] = useInView({ threshold: 1 });
-  const [canvasWrapper, canvasWrapperY] = useParallaxEffect([0, -0.2]);
 
   useEffect(() => {
     if (isTitleInView) {
@@ -28,13 +30,6 @@ const Title = ({ changeCurrentPage }) => {
       <NameTextWrapper>
         <LeftDescriptionFont>Hi.</LeftDescriptionFont>
       </NameTextWrapper>
-      <CanvasContainer
-        ref={canvasWrapper}
-        style={{ y: canvasWrapperY }}
-        variants={expandAnimation}
-      >
-        <TitleCanvas />
-      </CanvasContainer>
       <DescriptionTextWrapper variants={animationWrapper}>
         <RightDescriptionFont variants={slideFontAnimation}>
           I'm
@@ -51,21 +46,6 @@ const Title = ({ changeCurrentPage }) => {
 };
 
 export { Title };
-
-const CanvasContainer = styled(motion.div)`
-  position: absolute;
-  top: 70%;
-  left: 0%;
-  width: 70rem;
-  height: 80rem;
-  background: rgb(84, 84, 84);
-  background: linear-gradient(
-    90deg,
-    rgba(84, 84, 84, 1) 28%,
-    rgba(0, 0, 0, 1) 100%
-  );
-  z-index: 2;
-`;
 
 const AboutSection = styled(motion.div)`
   position: absolute;
@@ -117,4 +97,11 @@ const RightDescriptionFont = styled(motion.span)`
   font-weight: 500;
   color: #fff;
   margin-bottom: -5rem;
+`;
+
+const Photo = styled(motion.img)`
+  /* margin-left: 24rem; */
+  width: 40rem;
+  height: 40rem;
+  object-fit: contain;
 `;

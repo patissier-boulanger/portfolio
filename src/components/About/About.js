@@ -22,7 +22,7 @@ const About = ({ changeCurrentPage }) => {
       <RightProgressLine />
       <Title changeCurrentPage={changeCurrentPage} />
       <InvisibleFrame />
-      <AboutMeSection changeCurrentPage={changeCurrentPage} />
+      {/* <AboutMeSection changeCurrentPage={changeCurrentPage} /> */}
       <IntroduceSection changeCurrentPage={changeCurrentPage} />
       <PhotoSection changeCurrentPage={changeCurrentPage} />
       <SkillSection changeCurrentPage={changeCurrentPage} />

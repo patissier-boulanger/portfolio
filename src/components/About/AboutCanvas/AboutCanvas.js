@@ -57,10 +57,10 @@ const Geometries = () => {
 
   const items = [
     {
-      position: [-1, -0.5, -6],
-      r: 0.1,
-      geometry: new THREE.BoxBufferGeometry(12, 12, 12),
-      material: new THREE.MeshMatcapMaterial({ matcap: chrome1 }),
+      position: [0, 0, 0],
+      r: 0.2,
+      geometry: new THREE.BoxBufferGeometry(8, 8, 8),
+      material: new THREE.MeshMatcapMaterial({ matcap: blackMap }),
     },
   ];
 
@@ -127,8 +127,6 @@ const AboutCanvas = () => {
             bias={0.5}
           />
           <SMAA edgeDetectionMode={EdgeDetectionMode.DEPTH} />
-          <Noise opacity={1.025} />
-          <Vignette eskil={false} offset={0.1} darkness={1.1} />
         </EffectComposer>
       </Suspense>
       <Rig />
