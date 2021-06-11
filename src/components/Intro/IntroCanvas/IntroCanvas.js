@@ -176,14 +176,6 @@ const IntroCanvas = () => {
         <Geometries />
         <IntroTitle />
         <EffectComposer multisampling={0}>
-          <SSAO
-            samples={25}
-            intensity={4}
-            luminanceInfluence={0.5}
-            radius={10}
-            scale={0.5}
-            bias={0.5}
-          />
           <SMAA edgeDetectionMode={EdgeDetectionMode.DEPTH} />
         </EffectComposer>
       </Suspense>
