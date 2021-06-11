@@ -58,8 +58,8 @@ const Container = styled.div`
 
 const Photo = styled(motion.img)`
   margin-left: 24rem;
-  width: 80rem;
-  height: 80rem;
+  width: 75rem;
+  height: 75rem;
   object-fit: contain;
 `;
 

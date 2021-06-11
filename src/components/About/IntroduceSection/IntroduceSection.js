@@ -9,7 +9,7 @@ import {
   animationWrapper,
   slideFontAnimation,
 } from "../../../animations/variants";
-import { AboutCanvas } from "../AboutCanvas/AboutCanvas";
+import { IntroduceCanvas } from "./IntroduceCanvas.js/IntroduceCanvas";
 
 const IntroduceSection = ({ changeCurrentPage }) => {
   const [introduceObserver, isIntroduceInView] = useInView({ threshold: 0.5 });
@@ -29,7 +29,7 @@ const IntroduceSection = ({ changeCurrentPage }) => {
         ref={canvasWrapper}
         style={{ y: canvasWrapperY, x: canvasWrapperY }}
       >
-        <AboutCanvas />
+        <IntroduceCanvas />
       </CanvasContainer>
       <Description
         ref={descriptionWrapper}
@@ -53,9 +53,13 @@ const IntroduceSection = ({ changeCurrentPage }) => {
           <TitleSerifFont>목표</TitleSerifFont>
           <MediumFont>
             살아있는 공간을 만들고 싶습니다. 즐거운 공간은 신뢰성 있는 코드
-            위에서 이루어진다고 생각합니다. 좋은 코드를 위해 저는 이러한 부분에
-            신경을 쓰려고 노력하고 있습니다. 가독성과 접근성, 재사용 가능한
-            코드와 명료한 디자인 패턴이 그것입니다.
+            위에서 이루어진다고 생각합니다.
+          </MediumFont>
+          <Blank />
+          <MediumFont>
+            좋은 코드를 위해 저는 이러한 부분에 신경을 쓰려고 노력하고 있습니다.
+            가독성과 접근성, 재사용 가능한 코드와 명료한 디자인 패턴이
+            그것입니다.
           </MediumFont>
         </AnimationWrapper>
       </Description>
@@ -69,10 +73,20 @@ const IntroduceSection = ({ changeCurrentPage }) => {
           <SecondFont>
             개발자로써 사용자 경험에 관심을 가지려고 노력하고 있습니다. 웹
             사이트들을 들어갈때마다 어떻게 이루어져 있는지 관찰하려고
-            노력합니다. 좋은 Ui와 Ux가 기술적 요소만큼 중요하다고 생각하며 이를
-            위해서 다양한 분야의 경험을 하기 위해 노력하고 있습니다. 최근에는 3d
-            기술을 통해 더 좋은 ui를 구현하기 위해 학습하고 있습니다. 개발자를
-            하기 전의 경력이 이러한 부분에 도움을 줄 수 있을 거라고 생각합니다.
+            노력합니다.
+          </SecondFont>
+          <Blank />
+          <SecondFont>
+            Ui와 Ux가 기술적 요소만큼 중요하다고 생각하며 이를 위해서 다양한
+            분야의 경험을 하기 위해 노력하고 있습니다. 최근에는 3d 기술을 통해
+            더 좋은 ui를 구현하기 위해 학습하고 있습니다. 개발자를 하기 전의
+            경력이 이러한 부분에 도움을 줄 수 있을 거라고 생각합니다.
+          </SecondFont>
+          <Blank />
+          <SecondFont>
+            최근에는 3d 기술을 통해 더 좋은 ui를 구현하기 위해 학습하고
+            있습니다. 개발자를 하기 전의 경력이 이러한 부분에 도움을 줄 수 있을
+            거라고 생각합니다.
           </SecondFont>
         </AnimationWrapper>
       </Description>
@@ -87,7 +101,7 @@ const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  min-height: 120vh;
+  min-height: 150vh;
   background: #fff;
   padding: 20rem;
 `;
@@ -151,6 +165,10 @@ const TitleSansSerifFont = styled.span`
   color: #292929;
   z-index: 1;
   margin-bottom: 1rem;
+`;
+
+const Blank = styled.div`
+  height: 1rem;
 `;
 
 const TitleSerifFont = styled.span`

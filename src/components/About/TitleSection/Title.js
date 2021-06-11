@@ -30,6 +30,9 @@ const Title = ({ changeCurrentPage }) => {
       <NameTextWrapper>
         <LeftDescriptionFont>Hi.</LeftDescriptionFont>
       </NameTextWrapper>
+      <LitteTextWrapper>
+        <HeadFont>Nice to meet you</HeadFont>
+      </LitteTextWrapper>
       <DescriptionTextWrapper variants={animationWrapper}>
         <RightDescriptionFont variants={slideFontAnimation}>
           I'm
@@ -71,6 +74,29 @@ const NameTextWrapper = styled(motion.div)`
   z-index: 2;
 `;
 
+const LitteTextWrapper = styled(motion.div)`
+  position: absolute;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  bottom: 0%;
+  left: 0%;
+
+  width: 20rem;
+  height: 5rem;
+  z-index: 2;
+`;
+
+const HeadFont = styled.span`
+  font-family: "Roboto Mono", monospace;
+  font-weight: 200;
+  font-size: 1.8rem;
+  text-align: left;
+
+  color: #fff;
+  z-index: 1;
+`;
+
 const DescriptionTextWrapper = styled(motion.div)`
   position: absolute;
   display: flex;
@@ -97,11 +123,4 @@ const RightDescriptionFont = styled(motion.span)`
   font-weight: 500;
   color: #fff;
   margin-bottom: -5rem;
-`;
-
-const Photo = styled(motion.img)`
-  /* margin-left: 24rem; */
-  width: 40rem;
-  height: 40rem;
-  object-fit: contain;
 `;
