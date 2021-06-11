@@ -3,8 +3,9 @@ import React, { Suspense, useRef } from "react";
 import * as THREE from "three";
 import { Canvas, useFrame, useThree, useLoader } from "@react-three/fiber";
 import { a, useTransition } from "@react-spring/three";
-import { EffectComposer, SSAO, SMAA } from "@react-three/postprocessing";
-import { EdgeDetectionMode } from "postprocessing";
+import { EffectComposer } from "@react-three/postprocessing";
+import { Html } from "@react-three/drei";
+import styled from "styled-components";
 
 import { IntroTitle } from "./IntroTitle";
 
@@ -27,49 +28,12 @@ const Geometry = ({ r, position, ...props }) => {
 };
 
 const Geometries = () => {
-  const [
-    blackMap,
-    blackMap2,
-    blackMap3,
-    blackMap4,
-    blackMap5,
-    chrome1,
-    pink1,
-    white1,
-    mix1,
-    green1,
-  ] = useLoader(THREE.TextureLoader, [
+  const [blackMap, mix1] = useLoader(THREE.TextureLoader, [
     "/texture/black1.png",
-    "/texture/black2.png",
-    "/texture/black3.png",
-    "/texture/black4.png",
-    "/texture/black5.png",
-    "/texture/chrome1.png",
-    "/texture/pink1.png",
-    "/texture/white1.png",
     "/texture/mix1.png",
-    "/texture/green1.png",
   ]);
 
   const items = [
-    // {
-    //   position: [4.55, 1.8, -6],
-    //   r: 0.5,
-    //   geometry: new THREE.SphereBufferGeometry(1, 32, 32),
-    //   material: new THREE.MeshMatcapMaterial({ matcap: blackMap }),
-    // },
-    // {
-    //   position: [-2.5, -0.4, 2],
-    //   r: 0.2,
-    //   geometry: new THREE.TetrahedronBufferGeometry(1.5),
-    //   material: new THREE.MeshMatcapMaterial({ matcap: white1 }),
-    // },
-    // {
-    //   position: [2, -0.75, 4],
-    //   r: 0.3,
-    //   geometry: new THREE.CylinderBufferGeometry(0.8, 0.8, 2, 32),
-    //   material: new THREE.MeshMatcapMaterial({ matcap: blackMap }),
-    // },
     {
       position: [-0.9, 0.5, 6],
       r: 0.4,
@@ -89,12 +53,7 @@ const Geometries = () => {
       geometry: new THREE.IcosahedronBufferGeometry(2),
       material: new THREE.MeshNormalMaterial(),
     },
-    // {
-    //   position: [-0.9, -1.75, 3],
-    //   r: 0.35,
-    //   geometry: new THREE.TorusBufferGeometry(1.1, 0.35, 16, 32),
-    //   material: new THREE.MeshMatcapMaterial({ matcap: blackMap }),
-    // },
+
     {
       position: [1.5, 0.5, -2],
       r: 0.8,
@@ -107,12 +66,6 @@ const Geometries = () => {
       geometry: new THREE.BoxBufferGeometry(2, 2, 2),
       material: new THREE.MeshMatcapMaterial({ matcap: blackMap }),
     },
-    // {
-    //   position: [1.8, 1.9, 1],
-    //   r: 0.2,
-    //   geometry: new THREE.BoxBufferGeometry(2.5, 2.5, 2.5),
-    //   material: new THREE.MeshMatcapMaterial({ matcap: blackMap }),
-    // },
     {
       position: [1.8, -2.6, 1],
       r: 0.5,
@@ -130,7 +83,6 @@ const Geometries = () => {
     keys: (item) => item.key,
   });
 
-  //style, item 순서
   return transition((props, { position: [x, y, z], r, geometry, material }) => {
     return (
       <Geometry
@@ -172,12 +124,25 @@ const IntroCanvas = () => {
       <directionalLight castShadow position={[2.5, 12, 12]} intensity={4} />
       <pointLight position={[20, 20, 20]} />
       <pointLight position={[-20, -20, -20]} intensity={5} />
-      <Suspense fallback={null}>
+      <Suspense
+        fallback={
+          <Html center>
+            <StyledSpinner viewBox="0 0 50 50">
+              <circle
+                className="path"
+                cx="25"
+                cy="25"
+                r="20"
+                fill="none"
+                strokeWidth="2"
+              />
+            </StyledSpinner>
+          </Html>
+        }
+      >
         <Geometries />
         <IntroTitle />
-        <EffectComposer multisampling={0}>
-          <SMAA edgeDetectionMode={EdgeDetectionMode.DEPTH} />
-        </EffectComposer>
+        <EffectComposer multisampling={0}></EffectComposer>
       </Suspense>
       <Rig />
     </Canvas>
@@ -185,3 +150,36 @@ const IntroCanvas = () => {
 };
 
 export { IntroCanvas };
+
+const StyledSpinner = styled.svg`
+  animation: rotate 2s linear infinite;
+  margin: -25px 0 0 -25px;
+  width: 50px;
+  height: 50px;
+
+  & .path {
+    stroke: #262626;
+    stroke-linecap: round;
+    animation: dash 1.5s ease-in-out infinite;
+  }
+
+  @keyframes rotate {
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  @keyframes dash {
+    0% {
+      stroke-dasharray: 1, 150;
+      stroke-dashoffset: 0;
+    }
+    50% {
+      stroke-dasharray: 90, 150;
+      stroke-dashoffset: -35;
+    }
+    100% {
+      stroke-dasharray: 90, 150;
+      stroke-dashoffset: -124;
+    }
+  }
+`;

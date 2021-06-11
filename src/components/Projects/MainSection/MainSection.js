@@ -27,7 +27,7 @@ const Container = styled(motion.div)`
   align-items: center;
   justify-content: flex-start;
   left: 20%;
-  width: 65%;
+  width: 55%;
 
   overflow-y: scroll;
 `;

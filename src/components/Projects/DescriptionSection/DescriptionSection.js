@@ -29,7 +29,7 @@ const Container = styled(motion.div)`
   position: Sticky;
   display: flex;
   flex-direction: column;
-  width: 15%;
+  width: 27%;
 
   z-index: 1;
   margin-right: 2rem;
