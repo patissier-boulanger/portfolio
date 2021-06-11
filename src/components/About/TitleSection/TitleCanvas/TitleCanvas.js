@@ -118,14 +118,6 @@ const TitleCanvas = () => {
       <Suspense fallback={null}>
         <Geometries />
         <EffectComposer multisampling={0}>
-          <SSAO
-            samples={25}
-            intensity={4}
-            luminanceInfluence={0.5}
-            radius={10}
-            scale={0.5}
-            bias={0.5}
-          />
           <SMAA edgeDetectionMode={EdgeDetectionMode.DEPTH} />
           <Noise opacity={1.025} />
           <Vignette eskil={false} offset={0.1} darkness={1.1} />
