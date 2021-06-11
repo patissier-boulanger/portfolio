@@ -3,17 +3,10 @@ import styled from "styled-components";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
-import { TitleCanvas } from "./TitleCanvas/TitleCanvas";
-
-import face from "../../../asset/images/face.png";
-import color from "../../../asset/images/color1.png";
-
-import { useParallaxEffect } from "../../../hooks/useParallaxEffect";
 import {
   slideFontAnimation,
   animationWrapper,
   slideAnimation,
-  expandAnimation,
 } from "../../../animations/variants";
 
 const Title = ({ changeCurrentPage }) => {
@@ -90,7 +83,7 @@ const LitteTextWrapper = styled(motion.div)`
 const HeadFont = styled.span`
   font-family: "Roboto Mono", monospace;
   font-weight: 200;
-  font-size: 1.8rem;
+  font-size: 1.2rem;
   text-align: left;
 
   color: #fff;

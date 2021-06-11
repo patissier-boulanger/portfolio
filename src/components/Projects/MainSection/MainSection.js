@@ -35,6 +35,7 @@ const Container = styled(motion.div)`
 const MainImageSection = styled(motion.img)`
   width: 100%;
   object-fit: contain;
+  margin-bottom: 3rem;
 `;
 
 const SubImageSection = styled(motion.img)`

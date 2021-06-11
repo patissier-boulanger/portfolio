@@ -32,7 +32,9 @@ const Header = ({ isAboutInView }) => {
         <NavButton name={"projects"} onClick={navigate}>
           Projects
         </NavButton>
-        <NavButton onClick={navigate}>Contact</NavButton>
+        <NavButton name={"contact"} onClick={navigate}>
+          Contact
+        </NavButton>
       </Navigation>
     </Conatiner>
   );

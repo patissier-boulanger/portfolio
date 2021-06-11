@@ -1,4 +1,4 @@
-import React, { useEffect, useLayoutEffect } from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
@@ -18,7 +18,7 @@ const PhotoSection = ({ changeCurrentPage }) => {
   const [textsWrapper, textsWrapperControls] = useScrollAnimation(0.2);
   const [photo, photoY] = useParallaxEffect([0, -0.07]);
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     if (isPhotoInView) {
       changeCurrentPage({ currentPage: "photo" });
     }
