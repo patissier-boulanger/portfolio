@@ -7,7 +7,7 @@ const pageChangeAnimation = {
     opacity: 1,
     y: 0,
     transition: {
-      duration: 0.5,
+      duration: 0.4,
       when: "beforeChildren",
       staggerChildren: 0.25,
     },
@@ -15,7 +15,7 @@ const pageChangeAnimation = {
   exit: {
     opacity: 0,
     transition: {
-      duration: 0.5,
+      duration: 0.4,
     },
   },
 };
@@ -27,7 +27,7 @@ const enterPageAnimation = {
   show: {
     opacity: 1,
     transition: {
-      duration: 0.5,
+      duration: 0.3,
       when: "beforeChildren",
       staggerChildren: 1,
     },
@@ -35,7 +35,27 @@ const enterPageAnimation = {
   exit: {
     opacity: 0,
     transition: {
-      duration: 0.5,
+      duration: 0.4,
+    },
+  },
+};
+
+const rapideEnterPageAnimation = {
+  hidden: {
+    opacity: 0,
+  },
+  show: {
+    opacity: 1,
+    transition: {
+      duration: 0.3,
+      when: "beforeChildren",
+      staggerChildren: 0.2,
+    },
+  },
+  exit: {
+    opacity: 0,
+    transition: {
+      duration: 0.4,
     },
   },
 };
@@ -46,6 +66,18 @@ const slideAnimation = {
     y: 0,
     transition: {
       duration: 1,
+      type: "spring",
+      bounce: 0,
+    },
+  },
+};
+
+const rapideSlideAnimation = {
+  hidden: { y: "100vh" },
+  show: {
+    y: 0,
+    transition: {
+      duration: 0.3,
       type: "spring",
       bounce: 0,
     },
@@ -113,4 +145,5 @@ export {
   fadeInFontAnimation,
   animationWrapper,
   lineAnimation,
+  rapideEnterPageAnimation,
 };

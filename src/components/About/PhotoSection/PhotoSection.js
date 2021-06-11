@@ -1,4 +1,4 @@
-import React, { useEffect, useLayoutEffect } from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
@@ -18,7 +18,7 @@ const PhotoSection = ({ changeCurrentPage }) => {
   const [textsWrapper, textsWrapperControls] = useScrollAnimation(0.2);
   const [photo, photoY] = useParallaxEffect([0, -0.07]);
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     if (isPhotoInView) {
       changeCurrentPage({ currentPage: "photo" });
     }
@@ -34,7 +34,7 @@ const PhotoSection = ({ changeCurrentPage }) => {
       >
         <Font variants={fadeInFontAnimation}>Want to be a</Font>
         <AnimationWrapper>
-          <Font variants={fadeInFontAnimation}>nice</Font>
+          <Font variants={fadeInFontAnimation}>better</Font>
           <UnderLineAnimtion />
         </AnimationWrapper>
         <Font variants={fadeInFontAnimation}>men and good </Font>
@@ -56,8 +56,8 @@ const Container = styled.div`
 
 const Photo = styled(motion.img)`
   margin-left: 24rem;
-  width: 80rem;
-  height: 80rem;
+  width: 75rem;
+  height: 75rem;
   object-fit: contain;
 `;
 

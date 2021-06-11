@@ -1,9 +1,9 @@
-import React, { useEffect } from "react";
+import React from "react";
 import styled from "styled-components";
 import { motion } from "framer-motion";
 
 import { Title } from "./TitleSection/Title";
-import { AboutMeSection } from "./AboutMeSection/AboutMeSection";
+
 import { PhotoSection } from "./PhotoSection/PhotoSection";
 import { SkillSection } from "./SkillSection/SkillSection";
 import { IntroduceSection } from "./IntroduceSection/IntroduceSection";
@@ -22,7 +22,6 @@ const About = ({ changeCurrentPage }) => {
       <RightProgressLine />
       <Title changeCurrentPage={changeCurrentPage} />
       <InvisibleFrame />
-      <AboutMeSection changeCurrentPage={changeCurrentPage} />
       <IntroduceSection changeCurrentPage={changeCurrentPage} />
       <PhotoSection changeCurrentPage={changeCurrentPage} />
       <SkillSection changeCurrentPage={changeCurrentPage} />

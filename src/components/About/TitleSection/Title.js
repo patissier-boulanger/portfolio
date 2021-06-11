@@ -3,19 +3,14 @@ import styled from "styled-components";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
-import { TitleCanvas } from "./TitleCanvas/TitleCanvas";
-
-import { useParallaxEffect } from "../../../hooks/useParallaxEffect";
 import {
   slideFontAnimation,
   animationWrapper,
   slideAnimation,
-  expandAnimation,
 } from "../../../animations/variants";
 
 const Title = ({ changeCurrentPage }) => {
   const [titleObserver, isTitleInView] = useInView({ threshold: 1 });
-  const [canvasWrapper, canvasWrapperY] = useParallaxEffect([0, -0.2]);
 
   useEffect(() => {
     if (isTitleInView) {
@@ -28,13 +23,9 @@ const Title = ({ changeCurrentPage }) => {
       <NameTextWrapper>
         <LeftDescriptionFont>Hi.</LeftDescriptionFont>
       </NameTextWrapper>
-      <CanvasContainer
-        ref={canvasWrapper}
-        style={{ y: canvasWrapperY }}
-        variants={expandAnimation}
-      >
-        <TitleCanvas />
-      </CanvasContainer>
+      <LitteTextWrapper>
+        <HeadFont>Nice to meet you</HeadFont>
+      </LitteTextWrapper>
       <DescriptionTextWrapper variants={animationWrapper}>
         <RightDescriptionFont variants={slideFontAnimation}>
           I'm
@@ -51,21 +42,6 @@ const Title = ({ changeCurrentPage }) => {
 };
 
 export { Title };
-
-const CanvasContainer = styled(motion.div)`
-  position: absolute;
-  top: 70%;
-  left: 0%;
-  width: 70rem;
-  height: 80rem;
-  background: rgb(84, 84, 84);
-  background: linear-gradient(
-    90deg,
-    rgba(84, 84, 84, 1) 28%,
-    rgba(0, 0, 0, 1) 100%
-  );
-  z-index: 2;
-`;
 
 const AboutSection = styled(motion.div)`
   position: absolute;
@@ -89,6 +65,29 @@ const NameTextWrapper = styled(motion.div)`
   width: 60rem;
   height: 60rem;
   z-index: 2;
+`;
+
+const LitteTextWrapper = styled(motion.div)`
+  position: absolute;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  bottom: 0%;
+  left: 0%;
+
+  width: 20rem;
+  height: 5rem;
+  z-index: 2;
+`;
+
+const HeadFont = styled.span`
+  font-family: "Roboto Mono", monospace;
+  font-weight: 200;
+  font-size: 1.2rem;
+  text-align: left;
+
+  color: #fff;
+  z-index: 1;
 `;
 
 const DescriptionTextWrapper = styled(motion.div)`

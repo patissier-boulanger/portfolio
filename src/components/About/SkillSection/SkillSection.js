@@ -22,7 +22,7 @@ const SkillSection = () => {
           animate={textsWrapperControls}
           variants={animationWrapper}
         >
-          <MediumFont>:Skills</MediumFont>
+          <MediumFont>Skills</MediumFont>
           <Line variants={lineAnimation} />
           <BigFont variants={slideFontAnimation}>HTML / CSS</BigFont>
           <BigFont variants={slideFontAnimation}>Javascript</BigFont>
@@ -36,19 +36,17 @@ const SkillSection = () => {
           animate={descriptionWrapperControls}
           variants={animationWrapper}
         >
-          <MediumFont>:Interest</MediumFont>
+          <MediumFont>Interest</MediumFont>
           <Line variants={lineAnimation} />
           <AnimationWrapper variants={slideFontAnimation}>
-            <MediumFont>I care about </MediumFont>
-            <MediumFont>Readability</MediumFont>
-            <MediumFont>Accessibility</MediumFont>
-            <MediumFont>Reusable code</MediumFont>
-            <MediumFont>Design pattern.</MediumFont>
+            <NotoSerifFont>클린한 코드</NotoSerifFont>
+            <NotoSerifFont>기능적인 구조</NotoSerifFont>
+            <NotoSerifFont>디자인 패턴</NotoSerifFont>
+            <NotoSerifFont>테스트 주도 개발</NotoSerifFont>
+            <NotoSerifFont>함수형 프로그래밍</NotoSerifFont>
+            <NotoSerifFont>인터랙티브한 UI, UX</NotoSerifFont>
             <Blank />
-            <MediumFont>
-              I'm interested in creating interactive experiences and functional
-              interfaces.
-            </MediumFont>
+
             {/* <Button variants={slideFontAnimation}>
               <ButtonFont>| More</ButtonFont>
             </Button> */}
@@ -103,6 +101,16 @@ const Description = styled(motion.div)`
 
 const MediumFont = styled.span`
   font-family: "Roboto Mono", monospace;
+  font-weight: 200;
+  font-size: 2.5rem;
+  text-align: left;
+
+  color: #292929;
+  z-index: 1;
+`;
+
+const NotoSerifFont = styled.span`
+  font-family: "Noto Sans KR", sans-serif;
   font-weight: 200;
   font-size: 2.5rem;
   text-align: left;
