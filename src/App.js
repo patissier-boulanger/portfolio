@@ -1,17 +1,18 @@
-import "./App.css";
+import React, { useState } from "react";
 import { Switch, Route, useLocation } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
-import { useInView } from "react-intersection-observer";
 
 import { GlobalStyle } from "../src/styles/GlobalStyle";
 import { Intro } from "./components/Intro/Intro";
 import { Header } from "./components/Header/Header";
 import { About } from "./components/About/About";
-import { useState } from "react";
+import { Projects } from "./components/Projects/Projects";
+import { Contact } from "./components/Contact/Contact";
+
+import "./App.css";
 
 const App = () => {
   const [page, setCurrentPage] = useState({ currentPage: null });
-  // console.log("current page is", page);
 
   const location = useLocation();
 
@@ -27,8 +28,11 @@ const App = () => {
           <Route path="/about">
             <About changeCurrentPage={setCurrentPage} />
           </Route>
-          <Route path="/details">
-            <About changeCurrentPage={setCurrentPage} />
+          <Route path="/projects">
+            <Projects changeCurrentPage={setCurrentPage} />
+          </Route>
+          <Route path="/contact">
+            <Contact changeCurrentPage={setCurrentPage} />
           </Route>
         </Switch>
       </AnimatePresence>

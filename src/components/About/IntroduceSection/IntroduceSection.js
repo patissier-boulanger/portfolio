@@ -71,22 +71,16 @@ const IntroduceSection = ({ changeCurrentPage }) => {
         <AnimationWrapper variants={slideFontAnimation}>
           <TitleSansSerifFont>개발자</TitleSansSerifFont>
           <SecondFont>
-            개발자로써 사용자 경험에 관심을 가지려고 노력하고 있습니다. 웹
+            개발자로써 사용자 경험에 관심을 가지려고 노력하고 있습니다. 효율적인
+            코드를 위해 로우한 부분까지 파고드는 것을 좋아합니다. 잘 만든 웹
             사이트들을 들어갈때마다 어떻게 이루어져 있는지 관찰하려고
             노력합니다.
           </SecondFont>
           <Blank />
           <SecondFont>
-            Ui와 Ux가 기술적 요소만큼 중요하다고 생각하며 이를 위해서 다양한
-            분야의 경험을 하기 위해 노력하고 있습니다. 최근에는 3d 기술을 통해
-            더 좋은 ui를 구현하기 위해 학습하고 있습니다. 개발자를 하기 전의
-            경력이 이러한 부분에 도움을 줄 수 있을 거라고 생각합니다.
-          </SecondFont>
-          <Blank />
-          <SecondFont>
-            최근에는 3d 기술을 통해 더 좋은 ui를 구현하기 위해 학습하고
-            있습니다. 개발자를 하기 전의 경력이 이러한 부분에 도움을 줄 수 있을
-            거라고 생각합니다.
+            UI와 UX가 기술적 요소만큼 중요하다고 생각하며 이를 위해 다양한
+            분야의 경험을 하기 위해 노력하고 있습니다. 개발자를 하기 전 저의
+            경력이 넓은 시야를 가지는데 도움을 줄 수 있을 거라고 생각합니다.
           </SecondFont>
         </AnimationWrapper>
       </Description>
@@ -129,7 +123,7 @@ const Description = styled(motion.div)`
 const MediumFont = styled.span`
   font-family: "Noto Serif KR", serif;
   font-weight: 400;
-  font-size: 3rem;
+  font-size: 2.6rem;
   text-align: left;
 
   color: #292929;
@@ -139,7 +133,7 @@ const MediumFont = styled.span`
 const SecondFont = styled.span`
   font-family: "Noto Sans KR", sans-serif;
   font-weight: 200;
-  font-size: 2.8rem;
+  font-size: 2.6rem;
   text-align: left;
 
   color: #292929;
@@ -149,7 +143,7 @@ const SecondFont = styled.span`
 const HeadFont = styled.span`
   font-family: "Noto Sans KR", sans-serif;
   font-weight: 200;
-  font-size: 3rem;
+  font-size: 2.6rem;
   text-align: left;
 
   color: #292929;
@@ -174,7 +168,7 @@ const Blank = styled.div`
 const TitleSerifFont = styled.span`
   font-family: "Noto Serif KR", serif;
   font-weight: 400;
-  font-size: 2rem;
+  font-size: 1.8rem;
   text-align: left;
 
   color: #292929;

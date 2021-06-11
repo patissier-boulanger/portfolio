@@ -10,20 +10,28 @@ const Header = ({ isAboutInView }) => {
     history.push(`${event.target.name}`);
   };
 
+  const warn = () => {
+    alert("영문 검수 중입니다..");
+  };
+
   return (
     <Conatiner>
-      <HeaderBox isAboutInView={isAboutInView}>JJH.</HeaderBox>
+      <HeaderBox name={"/"} onClick={navigate}>
+        JJH.
+      </HeaderBox>
       <HeaderBox></HeaderBox>
       <HeaderBox></HeaderBox>
       <HeaderBox>
-        <LanguageButton>En</LanguageButton>
+        <LanguageButton onClick={warn}>En</LanguageButton>
         <LanguageButton>Kr</LanguageButton>
       </HeaderBox>
       <Navigation>
         <NavButton name={"about"} onClick={navigate}>
           About
         </NavButton>
-        <NavButton onClick={navigate}>Projects</NavButton>
+        <NavButton name={"projects"} onClick={navigate}>
+          Projects
+        </NavButton>
         <NavButton onClick={navigate}>Contact</NavButton>
       </Navigation>
     </Conatiner>
@@ -52,15 +60,16 @@ const Navigation = styled.div`
   justify-content: space-between;
 `;
 
-const HeaderBox = styled.span`
+const HeaderBox = styled.button`
   display: flex;
   margin-left: 2rem;
   margin-right: 2rem;
 
   font-family: "Roboto Slab", serif;
   font-size: 2.5rem;
-  /* color: grey; */
-  color: ${(props) => (props.isAboutInView ? "white" : "grey")};
+  color: grey;
+  cursor: pointer;
+  /* color: ${(props) => (props.isAboutInView ? "white" : "grey")}; */
 `;
 
 const LanguageButton = styled.button`
