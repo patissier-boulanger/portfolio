@@ -30,7 +30,7 @@ const About = ({ changeCurrentPage }) => {
   );
 };
 
-export { About };
+export default About;
 
 const Container = styled(motion.div)`
   position: relative;
