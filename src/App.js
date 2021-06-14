@@ -5,26 +5,25 @@ import { AnimatePresence } from "framer-motion";
 import { GlobalStyle } from "../src/styles/GlobalStyle";
 import { Intro } from "./components/Intro/Intro";
 import { Header } from "./components/Header/Header";
-import { About } from "./components/About/About";
+// import { About } from "./components/About/About";
 // import { Projects } from "./components/Projects/Projects";
 // import { Contact } from "./components/Contact/Contact";
-import { LoadingSpinner } from "./animations/spinner";
 
 import "./App.css";
 
+const About = lazy(() => import("./components/About/About"));
 const Projects = lazy(() => import("./components/Projects/Projects"));
 const Contact = lazy(() => import("./components/Contact/Contact"));
 
 const App = () => {
   const [page, setCurrentPage] = useState({ currentPage: null });
-
   const location = useLocation();
 
   return (
     <>
       <GlobalStyle />
       <Header />
-      <Suspense fallback={<LoadingSpinner />}>
+      <Suspense fallback={null}>
         <AnimatePresence exitBeforeEnter>
           <Switch location={location} key={location.pathname}>
             <Route path="/" exact>
