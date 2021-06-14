@@ -16,7 +16,14 @@ const projects = [
     description:
       "별다른 설치 없이 브라우저에서 바로 우주를 유영해 볼 수 있는 시뮬레이터입니다. 영화 그래비티, 게임 오브라딘 호의 귀환에서 영감을 받아 개발하였습니다.",
     githubLink: "https://github.com/patissier-boulanger/42-space-simulator",
-    stacks: ["HTML / CSS", "JavaScript", "ThreeJS", "Mobx"],
+    stacks: [
+      "HTML / CSS",
+      "JavaScript",
+      "ThreeJS",
+      "Mobx",
+      "Webpack",
+      "CannonJS",
+    ],
     thumbnail: spaceSimulatorPath,
     mainImageLink: spaceSimulatorPath,
     subImageLinks: [spaceSimulator2Path, spaceSimulator3Path],
