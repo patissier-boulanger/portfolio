@@ -74,7 +74,7 @@ const HeaderBox = styled.button`
   /* color: ${(props) => (props.isAboutInView ? "white" : "grey")}; */
 `;
 
-const LanguageButton = styled.button`
+const LanguageButton = styled.div`
   display: flex;
   justify-content: flex-end;
   margin-left: 2rem;
@@ -82,6 +82,7 @@ const LanguageButton = styled.button`
   margin-top: 0.5rem;
 
   font-family: "Roboto Mono", monospace;
+  font-weight: 200;
   font-size: 1.5rem;
   color: grey;
   cursor: pointer;
@@ -93,6 +94,7 @@ const NavButton = styled.button`
   margin-right: 2rem;
   justify-content: flex-end;
   font-family: "Roboto Mono", monospace;
+  font-weight: 400;
   font-size: 2rem;
   color: grey;
   cursor: pointer;
