@@ -1,4 +1,4 @@
-import React, { useEffect, useLayoutEffect } from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
@@ -17,7 +17,7 @@ const IntroduceSection = ({ changeCurrentPage }) => {
   const [descriptionWrapper, descriptionWrapperControls] =
     useScrollAnimation(0.4);
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     if (isIntroduceInView) {
       changeCurrentPage({ currentPage: "introduce" });
     }

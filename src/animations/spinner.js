@@ -15,6 +15,8 @@ const LoadingSpinner = () => {
   );
 };
 
+export { LoadingSpinner };
+
 const Spinner = styled.svg`
   animation: rotate 2s linear infinite;
   margin: -25px 0 0 -25px;
@@ -47,5 +49,3 @@ const Spinner = styled.svg`
     }
   }
 `;
-
-export { LoadingSpinner };
