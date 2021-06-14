@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 import { slideAnimation } from "../../../animations/variants";
 
@@ -12,7 +13,16 @@ const DescriptionSection = ({ currentProject }) => {
       <TitleSection>
         <TitleFont>{title}</TitleFont>
         <DescriptionFont>{description}</DescriptionFont>
-        <DescriptionFont>{githubLink}</DescriptionFont>
+        <DescriptionFont>
+          <Link
+            to={{
+              pathname: `${githubLink}`,
+            }}
+            target="_blank"
+          >
+            {githubLink}
+          </Link>
+        </DescriptionFont>
       </TitleSection>
       <StackSection>
         {stacks.map((stack, index) => {

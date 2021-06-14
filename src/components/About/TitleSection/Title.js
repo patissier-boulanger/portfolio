@@ -87,7 +87,7 @@ const LeftDescriptionFont = styled(motion.span)`
 const RightDescriptionFont = styled(motion.span)`
   font-family: "Roboto Mono", monospace;
   font-size: 15.3rem;
-  font-weight: 400;
+  font-weight: 300;
   color: #fff;
   margin-bottom: -5rem;
 `;
