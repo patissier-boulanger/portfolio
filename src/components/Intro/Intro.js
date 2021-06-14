@@ -23,4 +23,4 @@ const Container = styled(motion.div)`
   height: 100vh;
 `;
 
-export { Intro };
+export default Intro;
