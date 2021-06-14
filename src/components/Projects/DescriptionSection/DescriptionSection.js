@@ -15,8 +15,8 @@ const DescriptionSection = ({ currentProject }) => {
         <DescriptionFont>{githubLink}</DescriptionFont>
       </TitleSection>
       <StackSection>
-        {stacks.map((stack) => {
-          return <StackFont>{stack}</StackFont>;
+        {stacks.map((stack, index) => {
+          return <StackFont key={index}>{stack}</StackFont>;
         })}
       </StackSection>
     </Container>

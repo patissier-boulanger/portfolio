@@ -46,10 +46,6 @@ const SkillSection = () => {
             <NotoSerifFont>함수형 프로그래밍</NotoSerifFont>
             <NotoSerifFont>인터랙티브한 UI, UX</NotoSerifFont>
             <Blank />
-
-            {/* <Button variants={slideFontAnimation}>
-              <ButtonFont>| More</ButtonFont>
-            </Button> */}
           </AnimationWrapper>
           <Blank />
           <Blank />

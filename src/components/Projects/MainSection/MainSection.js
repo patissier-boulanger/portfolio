@@ -11,8 +11,8 @@ const MainSection = ({ currentProject }) => {
     <Container variants={slideAnimation}>
       <MainImageSection src={mainImageLink} />
       <SubImageWrapper>
-        {subImageLinks?.map((subImageLink) => {
-          return <SubImageSection src={subImageLink} />;
+        {subImageLinks?.map((subImageLink, index) => {
+          return <SubImageSection src={subImageLink} key={index} />;
         })}
       </SubImageWrapper>
     </Container>

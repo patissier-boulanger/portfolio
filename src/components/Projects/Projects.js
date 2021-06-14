@@ -42,4 +42,4 @@ const Container = styled(motion.div)`
   padding-top: 10rem;
 `;
 
-export { Projects };
+export default Projects;

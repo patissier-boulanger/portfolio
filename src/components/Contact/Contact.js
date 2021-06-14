@@ -57,6 +57,8 @@ const Contact = () => {
   );
 };
 
+export default Contact;
+
 const Container = styled(motion.div)`
   position: relative;
   min-height: 100vh;
@@ -124,5 +126,3 @@ const IconWrapper = styled.div`
   width: 30%;
   margin-top: 15rem;
 `;
-
-export { Contact };
